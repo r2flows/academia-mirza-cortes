@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Academia Mirza Cortés — Preuniversitario PAES</title>
+<meta name="description" content="Preuniversitario PAES especialista en Matemática (M1, M2) y Ciencias. Clases por módulo, ensayos cronometrados y seguimiento personalizado de puntaje.">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#3A2380">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F4F5F7;
+    --paper:#FFFFFF;
+    --ink:#0E1B33;
+    --slate:#5B6272;
+    --line:#E1E3E9;
+    --orange:#F5760B;
+    --orange-dark:#C85A05;
+    --blue:#4B2E9E;
+    --blue-dark:#3A2380;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:linear-gradient(180deg, #4B2E9E 0%, #3D2690 45%, #3A2380 100%);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  img,svg{display:block; max-width:100%;}
+  a{color:inherit; text-decoration:none;}
+  .mono{font-family:'JetBrains Mono',monospace;}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 28px;}
+  h1,h2,h3{font-family:'Fraunces',serif; font-weight:600; letter-spacing:-0.01em; color:var(--ink);}
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12.5px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--orange); font-weight:600;
+    display:inline-flex; align-items:center; gap:8px;
+  }
+  .eyebrow::before{content:''; width:16px; height:1px; background:var(--orange);}
+  .hero-hook{
+    display:inline-flex; align-items:center; gap:10px; flex-wrap:wrap;
+    background:rgba(245,118,11,.24); border:1.5px solid rgba(245,118,11,.6);
+    color:#FFEFDD; font-size:15.5px; font-weight:700;
+    padding:12px 24px; border-radius:999px; margin-bottom:26px;
+  }
+  .hero-hook .trophy{font-size:18px;}
+  .hero-hook span{color:#EDE9F9; font-weight:500; opacity:.9;}
+  .hero .eyebrow{margin-top:2px;}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(58,35,128,.82); backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(255,255,255,.14);
+  }
+  nav{
+    display:flex; align-items:center; justify-content:space-between; gap:14px;
+    padding:18px 0;
+  }
+  .brand{display:flex; align-items:center; gap:10px;}
+  .brand-mark{
+    width:36px; height:36px; flex-shrink:0; display:block;
+  }
+  .brand-mark.sm{width:28px; height:28px;}
+  .brand-name{font-family:'Fraunces',serif; font-weight:600; font-size:18px; line-height:1.1; color:#fff;}
+  .brand-name span{display:block; font-family:'JetBrains Mono',monospace; font-weight:500; font-size:10.5px; letter-spacing:.12em; color:#C9C2E8; text-transform:uppercase; margin-top:2px;}
+  .nav-links{display:flex; gap:34px; align-items:center;}
+  .nav-links a{font-size:14.5px; font-weight:500; color:#fff; opacity:.78; transition:opacity .15s;}
+  .nav-links a:hover{opacity:1;}
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:8px;
+    padding:11px 22px; border-radius:8px; font-weight:600; font-size:14.5px;
+    cursor:pointer; border:1px solid transparent; transition:transform .15s, background .15s, color .15s;
+  }
+  .btn-primary{background:#fff; color:var(--ink);}
+  .btn-primary:hover{background:var(--orange); color:#fff;}
+  .btn-ghost{border-color:rgba(255,255,255,.4); color:#fff; background:transparent;}
+  .btn-ghost:hover{border-color:#fff;}
+  .nav-cta{display:flex; gap:12px;}
+  .nav-cta .btn-primary{padding:8px 17px; font-size:13.5px;}
+  .menu-btn{display:none; background:none; border:none; cursor:pointer; color:#fff; font-size:20px;}
+
+  /* ---------- HERO ---------- */
+  .hero{padding:88px 0 96px; position:relative; overflow:hidden;}
+  .hero-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:64px; align-items:center;}
+  .hero h1{font-size:clamp(34px,4.6vw,58px); line-height:1.04; margin:18px 0 22px; color:#fff;}
+  .hero h1 em{font-style:normal; color:var(--orange);}
+  .hero p.lede{font-size:17.5px; color:#D3CCEF; max-width:46ch; margin-bottom:32px;}
+  .hero-ctas{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:38px;}
+  .btn-hero{background:var(--orange); color:#fff;}
+  .btn-hero:hover{background:var(--orange-dark);}
+  .hero-proof{display:flex; gap:28px; flex-wrap:wrap;}
+  .proof-item{font-size:13px; color:#C9C2E8;}
+  .proof-item b{display:block; font-family:'JetBrains Mono',monospace; color:#fff; font-size:20px; font-weight:700;}
+
+  /* answer-sheet signature visual */
+  .sheet{
+    background:var(--paper); border:1px solid var(--line); border-radius:16px;
+    padding:30px 28px; box-shadow:0 24px 48px -24px rgba(16,19,31,.18);
+  }
+  .sheet-top{display:flex; justify-content:space-between; align-items:baseline; margin-bottom:22px; padding-bottom:16px; border-bottom:1px dashed var(--line);}
+  .sheet-top .label{font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--slate);}
+  .sheet-top .score{font-family:'JetBrains Mono',monospace; font-size:34px; font-weight:700; color:var(--blue);}
+  .sheet-row{display:flex; align-items:center; gap:14px; padding:9px 0;}
+  .sheet-row .qnum{font-family:'JetBrains Mono',monospace; font-size:12.5px; color:var(--slate); width:26px; flex-shrink:0;}
+  .bubbles{display:flex; gap:9px;}
+  .bubble{
+    width:24px; height:24px; border-radius:50%; border:1.6px solid #C6CAD3;
+    display:flex; align-items:center; justify-content:center;
+    font-family:'JetBrains Mono',monospace; font-size:10.5px; color:#9AA0AC;
+    flex-shrink:0;
+  }
+  .bubble.fill{background:var(--orange); border-color:var(--orange); color:#fff; animation:pop .5s ease;}
+  @keyframes pop{0%{transform:scale(.4); opacity:0;} 60%{transform:scale(1.15);} 100%{transform:scale(1); opacity:1;}}
+  .sheet-note{margin-top:18px; padding-top:16px; border-top:1px dashed var(--line); font-size:12.5px; color:var(--slate); display:flex; align-items:center; gap:8px;}
+  .dot{width:7px; height:7px; border-radius:50%; background:var(--blue); flex-shrink:0;}
+
+  /* ---------- SECTION SHELL ---------- */
+  section{padding:96px 0;}
+  .sec-head{max-width:640px; margin-bottom:52px;}
+  .sec-head h2{font-size:clamp(28px,3.2vw,40px); margin-top:14px;}
+  .sec-head p{color:var(--slate); font-size:16px; margin-top:14px;}
+  #testimonios .sec-head h2{color:#fff;}
+  #testimonios .sec-head p{color:#D3CCEF;}
+
+  /* ---------- CURSOS ---------- */
+  .courses{background:linear-gradient(150deg, #FFE4C2 0%, #FFC98A 55%, #FFB35C 100%); border-top:1px solid rgba(200,90,5,.25); border-bottom:1px solid rgba(200,90,5,.25);}
+  .courses .eyebrow, .courses .eyebrow::before{color:#7A3D02;}
+  .courses .eyebrow::before{background:#7A3D02;}
+  .course-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+  .course-card{
+    background:var(--paper); border:1.5px solid var(--line); border-radius:14px;
+    padding:26px 24px; transition:transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+  }
+  .course-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 16px 32px -16px rgba(60,30,0,.28);
+  }
+  .course-card.accent-orange:hover{border-color:var(--orange);}
+  .course-card.accent-blue:hover{border-color:var(--blue);}
+  .course-card.accent-neutral:hover{border-color:#9AA0AC;}
+  .course-top{display:flex; align-items:center; justify-content:space-between; margin-bottom:20px;}
+  .course-code{
+    font-family:'JetBrains Mono',monospace; font-weight:700; font-size:13px;
+    border:1px solid currentColor; border-radius:6px;
+    display:inline-block; padding:3px 9px;
+  }
+  .accent-orange .course-code{color:var(--orange);}
+  .accent-blue .course-code{color:var(--blue);}
+  .accent-neutral .course-code{color:#7B7F8C;}
+  .course-bubble{
+    width:22px; height:22px; border-radius:50%; flex-shrink:0;
+    display:flex; align-items:center; justify-content:center;
+    font-size:11px; font-weight:700; color:#fff;
+  }
+  .accent-orange .course-bubble{background:var(--orange);}
+  .accent-blue .course-bubble{background:var(--blue);}
+  .accent-neutral .course-bubble{background:#9AA0AC;}
+  .course-card h3{font-size:19px; margin-bottom:8px;}
+  .course-card p{font-size:14px; color:var(--slate); line-height:1.55;}
+  .course-meta{
+    font-family:'JetBrains Mono',monospace; font-size:11.5px; color:var(--slate);
+    margin-top:18px; padding-top:16px; border-top:1px dashed var(--line);
+    letter-spacing:.02em;
+  }
+
+  /* ---------- RECURSOS (dentro de cada módulo) ---------- */
+  .resources{background:var(--paper);}
+  .resource-group{margin-bottom:56px;}
+  .resource-group:last-child{margin-bottom:0;}
+  .resource-group-head{display:flex; align-items:baseline; gap:12px; margin-bottom:24px; flex-wrap:wrap;}
+  .resource-group-title{font-size:20px;}
+  .resource-group-tag{
+    font-family:'JetBrains Mono',monospace; font-size:11.5px; letter-spacing:.06em;
+    text-transform:uppercase; color:var(--slate); background:var(--bg);
+    padding:4px 10px; border-radius:6px;
+  }
+
+  .format-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+  .format-card{
+    border-radius:16px; overflow:hidden;
+    transition:transform .2s ease, box-shadow .2s ease;
+    background:var(--paper); border:1.5px solid var(--line);
+  }
+  .format-card:hover{transform:translateY(-6px); box-shadow:0 20px 40px -18px rgba(16,19,31,.28);}
+  .format-preview{
+    height:150px; display:flex; align-items:center; justify-content:center; position:relative;
+  }
+  .format-podcast .format-preview{background:linear-gradient(160deg, #F5760B 0%, #C85A05 100%);}
+  .format-infografia .format-preview{background:linear-gradient(160deg, #4B2E9E 0%, #3A2380 100%);}
+  .format-video .format-preview{background:linear-gradient(160deg, #1C2333 0%, #0E1B33 100%);}
+  .format-body{padding:22px 24px 24px;}
+  .format-kicker{
+    font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase;
+    display:block; margin-bottom:8px;
+  }
+  .format-podcast .format-kicker{color:var(--orange-dark);}
+  .format-infografia .format-kicker{color:var(--blue);}
+  .format-video .format-kicker{color:var(--ink);}
+  .format-card h4{font-family:'Fraunces',serif; font-weight:600; font-size:19px; margin-bottom:8px;}
+  .format-card p{font-size:14px; color:var(--slate); line-height:1.55;}
+
+  /* podcast waveform */
+  .waveform{display:flex; align-items:center; gap:4px; height:56px;}
+  .waveform span{width:5px; border-radius:3px; background:rgba(255,255,255,.85);}
+  .play-btn{
+    width:52px; height:52px; border-radius:50%; background:rgba(255,255,255,.95);
+    display:flex; align-items:center; justify-content:center; flex-shrink:0; position:relative; z-index:2;
+  }
+  .play-btn::after{content:''; border-style:solid; border-width:8px 0 8px 13px; border-color:transparent transparent transparent var(--orange-dark); margin-left:3px;}
+  .format-podcast .format-preview{gap:16px;}
+
+  /* infografia mini chart */
+  .mini-chart{display:flex; align-items:flex-end; gap:7px; height:64px;}
+  .mini-chart span{width:14px; border-radius:4px 4px 0 0; background:rgba(255,255,255,.9);}
+  .mini-chart span:nth-child(1){background:rgba(255,255,255,.55);}
+  .mini-chart span:nth-child(3){background:var(--orange);}
+
+  /* video thumbnail */
+  .video-play{
+    width:58px; height:58px; border-radius:50%; background:var(--orange);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .video-play::after{content:''; border-style:solid; border-width:10px 0 10px 16px; border-color:transparent transparent transparent #fff; margin-left:4px;}
+  .video-frame{position:absolute; inset:14px; border:1.5px solid rgba(255,255,255,.25); border-radius:8px; pointer-events:none;}
+
+  .level-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+  .level-card{
+    border-radius:14px; padding:26px 24px; position:relative; overflow:hidden;
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .level-card:hover{transform:translateY(-4px); box-shadow:0 16px 32px -18px rgba(16,19,31,.25);}
+  .level-basico{background:#FFF3E8; border:1.5px solid rgba(245,118,11,.3);}
+  .level-experto{background:var(--orange); border:1.5px solid var(--orange);}
+  .level-nacional{background:var(--ink); border:1.5px solid var(--ink);}
+  .level-top{display:flex; align-items:center; justify-content:space-between; margin-bottom:22px;}
+  .level-num{font-family:'JetBrains Mono',monospace; font-weight:700; font-size:13px;}
+  .level-basico .level-num{color:var(--orange-dark);}
+  .level-experto .level-num{color:#fff; opacity:.85;}
+  .level-nacional .level-num{color:var(--orange);}
+  .level-bars{display:flex; align-items:flex-end; gap:3px; height:20px;}
+  .level-bars span{width:4px; border-radius:2px; background:currentColor;}
+  .level-basico .level-bars{color:var(--orange-dark);}
+  .level-experto .level-bars{color:#fff;}
+  .level-nacional .level-bars{color:var(--orange);}
+  .level-card h4{font-family:'Fraunces',serif; font-weight:600; font-size:19px; margin-bottom:6px;}
+  .level-basico h4{color:var(--ink);}
+  .level-experto h4{color:#fff;}
+  .level-nacional h4{color:#fff;}
+  .level-card .level-desc{font-size:13.5px; margin-bottom:20px;}
+  .level-basico .level-desc{color:var(--slate);}
+  .level-experto .level-desc{color:rgba(255,255,255,.85);}
+  .level-nacional .level-desc{color:#C9C2E8;}
+  .level-meta{
+    font-family:'JetBrains Mono',monospace; font-size:12px;
+    padding-top:16px; border-top:1px dashed;
+  }
+  .level-basico .level-meta{color:var(--orange-dark); border-color:rgba(245,118,11,.3);}
+  .level-experto .level-meta{color:#fff; border-color:rgba(255,255,255,.35);}
+  .level-nacional .level-meta{color:#C9C2E8; border-color:rgba(255,255,255,.18);}
+  .level-trophy{position:absolute; top:20px; right:22px; font-size:20px; opacity:.9;}
+
+  .resource-note{
+    margin-top:28px; font-size:14px; color:var(--slate); max-width:60ch;
+    padding:18px 20px; background:var(--bg); border-radius:10px; border-left:3px solid var(--orange);
+  }
+  .resource-note b{color:var(--ink);}
+
+  @media(max-width:920px){
+    .format-grid, .level-grid{grid-template-columns:1fr;}
+  }
+
+  /* ---------- TESTIMONIOS ---------- */
+  .testi-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
+  .testi-card{
+    background:var(--paper); border:1px solid var(--line); border-radius:14px; padding:28px;
+    display:flex; flex-direction:column; gap:18px;
+  }
+  .testi-jump{display:flex; align-items:center; gap:10px; font-family:'JetBrains Mono',monospace; font-size:13px;}
+  .testi-jump .from{color:var(--slate);}
+  .testi-jump .arrow{color:#C6CAD3;}
+  .testi-jump .to{color:var(--blue); font-weight:700; font-size:16px;}
+  .to-wrap{display:inline-flex; align-items:center; gap:8px;}
+  .avatar{
+    width:26px; height:26px; border-radius:50%; flex-shrink:0;
+    display:flex; align-items:center; justify-content:center;
+    font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:700; color:#fff;
+  }
+  .testi-quote{font-size:15px; color:var(--ink); line-height:1.6; flex-grow:1;}
+  .testi-who{font-size:13px; color:var(--slate); border-top:1px solid var(--line); padding-top:14px;}
+  .testi-who b{color:var(--ink); font-weight:600;}
+
+  /* ---------- PLANES ---------- */
+  .plans{background:linear-gradient(165deg, #4B2E9E 0%, #3A2380 100%);}
+  .plans .eyebrow{color:var(--orange);}
+  .plans .sec-head h2, .plans .sec-head p{color:#fff;}
+  .plans .sec-head p{color:#D3CCEF;}
+  .plan-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+  .plan-card{
+    background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.16); border-radius:16px; padding:32px 26px;
+    display:flex; flex-direction:column;
+  }
+  .plan-card.featured{border-color:var(--orange); background:rgba(255,255,255,.09); position:relative;}
+  .plan-tag{
+    position:absolute; top:-13px; left:26px; background:var(--orange); color:#fff;
+    font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase;
+    padding:5px 12px; border-radius:999px; font-weight:600;
+  }
+  .plan-card h3{color:#fff; font-size:20px; margin-bottom:6px;}
+  .plan-desc{color:#C9C2E8; font-size:13.5px; margin-bottom:22px;}
+  .plan-price{font-family:'JetBrains Mono',monospace; font-size:32px; font-weight:700; color:#fff; margin-bottom:2px;}
+  .plan-price span{font-size:13px; color:#C9C2E8; font-weight:400;}
+  .plan-list{list-style:none; margin:24px 0 28px; flex-grow:1;}
+  .plan-list li{display:flex; gap:10px; font-size:13.5px; color:#E4E0F5; padding:7px 0; border-top:1px solid rgba(255,255,255,.12);}
+  .plan-list li:first-child{border-top:none;}
+  .plan-list li::before{content:'✓'; color:var(--blue); font-weight:700; flex-shrink:0;}
+  .plan-card .btn-primary{background:#fff; color:var(--ink);}
+  .plan-card.featured .btn-primary{background:var(--orange); color:#fff;}
+  .plan-card .btn-primary:hover{opacity:.88;}
+  .plans-note{margin-top:28px; font-size:13px; color:#7B7F8C; text-align:center;}
+
+  /* ---------- CONTACTO ---------- */
+  .contact-grid{display:grid; grid-template-columns:.9fr 1.1fr; gap:56px; align-items:start;}
+  .contact-info h3{font-size:22px; margin-bottom:14px; color:#fff;}
+  .contact-info p{color:#D3CCEF; font-size:15px; margin-bottom:26px; max-width:40ch;}
+  .info-row{display:flex; gap:14px; padding:14px 0; border-top:1px solid rgba(255,255,255,.18);}
+  .info-row:last-of-type{border-bottom:1px solid rgba(255,255,255,.18);}
+  .info-row .k{font-family:'JetBrains Mono',monospace; font-size:11.5px; text-transform:uppercase; letter-spacing:.08em; color:#C9C2E8; width:90px; flex-shrink:0; padding-top:2px;}
+  .info-row .v{font-size:14.5px; font-weight:500; color:#fff;}
+  .wa-btn{margin-top:26px; background:var(--slate); color:#fff; border-radius:6px;}
+  .wa-btn:hover{background:#454B58; color:#fff;}
+
+  form{background:linear-gradient(150deg, #FFE4C2 0%, #FFC98A 55%, #FFB35C 100%); border:1px solid rgba(200,90,5,.25); border-radius:16px; padding:34px;}
+  .form-row{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;}
+  .field{display:flex; flex-direction:column; gap:7px;}
+  .field.full{grid-column:1/-1;}
+  label{font-size:12.5px; font-weight:600; color:#7A3D02;}
+  input, select, textarea{
+    font-family:'Inter',sans-serif; font-size:14.5px; padding:11px 13px;
+    border:1px solid var(--line); border-radius:8px; background:#FBFBFA; color:var(--ink);
+    outline:none; transition:border-color .15s;
+  }
+  input:focus, select:focus, textarea:focus{border-color:var(--ink);}
+  textarea{resize:vertical; min-height:88px;}
+  .form-submit{width:100%; margin-top:6px; padding:13px; background:var(--orange); color:#fff;}
+  .form-submit:hover{background:var(--orange-dark);}
+  .form-msg{margin-top:14px; font-size:13.5px; color:var(--blue); display:none; font-weight:500;}
+  .form-msg.show{display:block;}
+
+  footer{border-top:1px solid rgba(255,255,255,.16); padding:36px 0;}
+  .foot-wrap{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;}
+  .foot-wrap p{font-size:13px; color:#C9C2E8;}
+  footer .brand-name{color:#fff;}
+
+  /* Los items de grid tienen min-width:auto por defecto, asi que no bajan de su
+     min-content y estiran la columna hasta desbordar el contenedor. En movil eso
+     hacia que la pagina se scrollease de lado: los <input> no encogen por debajo
+     de su size=20 (~308px) y forzaban la columna de contacto a 378px dentro de
+     un contenedor de 319px. */
+  .contact-grid > *, .course-grid > *, .format-grid > *,
+  .level-grid > *, .plan-grid > *, .testi-grid > *{min-width:0;}
+  input, select, textarea{min-width:0; width:100%;}
+
+  @media(max-width:920px){
+    .hero-grid{grid-template-columns:1fr;}
+    .nav-links, .nav-cta .btn-ghost{display:none;}
+    .menu-btn{display:block; flex-shrink:0;}
+    .nav-cta{flex-shrink:0;}
+    .nav-cta .btn-primary{padding:7px 13px; font-size:12.5px;}
+    .brand-name{font-size:15.5px;}
+    .brand-name span{display:none;}
+    .course-grid{grid-template-columns:repeat(2,1fr); gap:14px;}
+    .testi-grid, .plan-grid{grid-template-columns:1fr;}
+    .contact-grid{grid-template-columns:1fr;}
+    .form-row{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <div class="brand">
+        <img class="brand-mark" src="/logo-mark.png" width="36" height="36" alt="Academia Mirza Cortés">
+        <div class="brand-name">Mirza Cortés<span>Preuniversitario · PAES</span></div>
+      </div>
+      <div class="nav-links">
+        <a href="#cursos">Cursos</a>
+        <a href="#recursos">Recursos</a>
+        <a href="#testimonios">Testimonios</a>
+        <a href="#planes">Planes</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+      <div class="nav-cta">
+        <a href="https://wa.me/56900000000" target="_blank" class="btn btn-ghost">Habla con nosotros</a>
+        <a href="#planes" class="btn btn-primary">Matricúlate</a>
+      </div>
+      <button class="menu-btn" aria-label="Abrir menú">☰</button>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="hero-hook"><span class="trophy">🏆</span> El preuniversitario de los nacionales <span>· 137 puntajes nacionales a la fecha</span></div>
+      <span class="eyebrow">Preuniversitario de Ciencias y Matemáticas</span>
+      <h1>Cada respuesta correcta <em>suma</em> hacia el puntaje que necesitas.</h1>
+      <p class="lede">Clases por módulo, ensayos cronometrados y seguimiento personalizado de tu puntaje semana a semana — especialistas en Matemática y Ciencias PAES.</p>
+      <div class="hero-ctas">
+        <a href="#contacto" class="btn btn-primary btn-hero">Accede a la plataforma virtual</a>
+        <a href="#cursos" class="btn btn-ghost">Ver módulos</a>
+      </div>
+      <div class="hero-proof">
+        <div class="proof-item"><b>+850</b>alumnos preparados</div>
+        <div class="proof-item"><b>142 pts</b>alza promedio</div>
+        <div class="proof-item"><b>137</b>puntajes nacionales</div>
+      </div>
+    </div>
+
+    <div class="sheet">
+      <div class="sheet-top">
+        <span class="label">Puntaje promedio alumno</span>
+        <span class="score">742</span>
+      </div>
+      <div class="sheet-row">
+        <span class="qnum">01</span>
+        <div class="bubbles">
+          <div class="bubble">A</div><div class="bubble fill">B</div><div class="bubble">C</div><div class="bubble">D</div><div class="bubble">E</div>
+        </div>
+      </div>
+      <div class="sheet-row">
+        <span class="qnum">02</span>
+        <div class="bubbles">
+          <div class="bubble">A</div><div class="bubble">B</div><div class="bubble">C</div><div class="bubble fill">D</div><div class="bubble">E</div>
+        </div>
+      </div>
+      <div class="sheet-row">
+        <span class="qnum">03</span>
+        <div class="bubbles">
+          <div class="bubble fill">A</div><div class="bubble">B</div><div class="bubble">C</div><div class="bubble">D</div><div class="bubble">E</div>
+        </div>
+      </div>
+      <div class="sheet-note"><span class="dot"></span> Corrección y retroalimentación en menos de 48 horas</div>
+    </div>
+  </div>
+</section>
+
+<section class="courses" id="cursos">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Módulos</span>
+      <h2>Especialistas en Matemática y Ciencias PAES.</h2>
+      <p>Nos concentramos en los módulos M1, M2 y Ciencias, con material propio y ensayos alineados al DEMRE.</p>
+    </div>
+    <div class="course-grid">
+      <div class="course-card accent-orange">
+        <div class="course-top">
+          <span class="course-code">M1</span>
+          <span class="course-bubble">✓</span>
+        </div>
+        <h3>Competencia Matemática 1</h3>
+        <p>Álgebra, geometría y probabilidad — la base que rinden todas las carreras.</p>
+        <div class="course-meta">18 clases · 6 ensayos</div>
+      </div>
+      <div class="course-card accent-orange">
+        <div class="course-top">
+          <span class="course-code">M2</span>
+          <span class="course-bubble">✓</span>
+        </div>
+        <h3>Competencia Matemática 2</h3>
+        <p>Para carreras que exigen M2: funciones, cálculo inicial y modelamiento.</p>
+        <div class="course-meta">14 clases · 4 ensayos</div>
+      </div>
+      <div class="course-card accent-blue">
+        <div class="course-top">
+          <span class="course-code">CIE</span>
+          <span class="course-bubble">✓</span>
+        </div>
+        <h3>Ciencias</h3>
+        <p>Biología, física o química según la mención que rindas.</p>
+        <div class="course-meta">16 clases · 5 ensayos</div>
+      </div>
+      <div class="course-card accent-neutral">
+        <div class="course-top">
+          <span class="course-code">EN</span>
+          <span class="course-bubble">✓</span>
+        </div>
+        <h3>Ensayos generales</h3>
+        <p>Simulacros cronometrados de jornada completa, condiciones reales de rendición.</p>
+        <div class="course-meta">8 simulacros · jornada completa</div>
+      </div>
+      <div class="course-card accent-neutral">
+        <div class="course-top">
+          <span class="course-code">TU</span>
+          <span class="course-bubble">✓</span>
+        </div>
+        <h3>Tutorías 1:1</h3>
+        <p>Refuerzo dirigido en los contenidos donde más se pierden puntos.</p>
+        <div class="course-meta">4 sesiones al mes · modalidad 1:1</div>
+      </div>
+      <div class="course-card accent-neutral">
+        <div class="course-top">
+          <span class="course-code">OR</span>
+          <span class="course-bubble">✓</span>
+        </div>
+        <h3>Orientación vocacional</h3>
+        <p>Postulación, ponderaciones y elección informada de carrera.</p>
+        <div class="course-meta">2 sesiones · perfil vocacional</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="resources" id="recursos">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Plataforma virtual</span>
+      <h2>Dentro de cada módulo hay 6 recursos.</h2>
+      <p>Al matricularte accedes a la plataforma virtual, donde cada módulo se despliega en 3 formatos de contenido y 3 niveles de evaluación — para que estudies como mejor aprendes y midas tu avance en serio.</p>
+    </div>
+
+    <div class="resource-group">
+      <div class="resource-group-head">
+        <h3 class="resource-group-title">3 formatos, un mismo contenido</h3>
+        <span class="resource-group-tag">Elige cómo estudiar</span>
+      </div>
+      <div class="format-grid">
+        <div class="format-card format-podcast">
+          <div class="format-preview">
+            <div class="play-btn"></div>
+            <div class="waveform">
+              <span style="height:14px;"></span><span style="height:28px;"></span><span style="height:20px;"></span>
+              <span style="height:38px;"></span><span style="height:16px;"></span><span style="height:30px;"></span>
+              <span style="height:22px;"></span><span style="height:12px;"></span>
+            </div>
+          </div>
+          <div class="format-body">
+            <span class="format-kicker">Audio · ~12 min</span>
+            <h4>Podcast</h4>
+            <p>Repasa la materia escuchando, mientras te trasladas o entre pausas de estudio.</p>
+          </div>
+        </div>
+        <div class="format-card format-infografia">
+          <div class="format-preview">
+            <div class="mini-chart">
+              <span style="height:26px;"></span><span style="height:44px;"></span><span style="height:34px;"></span><span style="height:56px;"></span>
+            </div>
+          </div>
+          <div class="format-body">
+            <span class="format-kicker">Resumen visual · 1 vista</span>
+            <h4>Infografía</h4>
+            <p>El contenido resumido en una vista rápida, ideal para repasar antes de un ensayo.</p>
+          </div>
+        </div>
+        <div class="format-card format-video">
+          <div class="format-preview">
+            <div class="video-frame"></div>
+            <div class="video-play"></div>
+          </div>
+          <div class="format-body">
+            <span class="format-kicker">Video · ~8 min</span>
+            <h4>Video</h4>
+            <p>La clase explicada paso a paso, para cuando necesitas ver el proceso completo.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="resource-group">
+      <div class="resource-group-head">
+        <h3 class="resource-group-title">3 niveles de evaluación</h3>
+        <span class="resource-group-tag">40 problemas cada uno</span>
+      </div>
+      <div class="level-grid">
+        <div class="level-card level-basico">
+          <div class="level-top">
+            <span class="level-num">01</span>
+            <div class="level-bars"><span style="height:6px;"></span><span style="height:10px;"></span><span style="height:8px;"></span></div>
+          </div>
+          <h4>Básico</h4>
+          <p class="level-desc">Para afianzar los conceptos fundamentales de cada eje temático.</p>
+          <div class="level-meta">40 problemas · por eje y sub-eje</div>
+        </div>
+        <div class="level-card level-experto">
+          <div class="level-top">
+            <span class="level-num">02</span>
+            <div class="level-bars"><span style="height:8px;"></span><span style="height:14px;"></span><span style="height:11px;"></span></div>
+          </div>
+          <h4>Experto</h4>
+          <p class="level-desc">Problemas de mayor complejidad, al nivel que exige la PAES real.</p>
+          <div class="level-meta">40 problemas · por eje y sub-eje</div>
+        </div>
+        <div class="level-card level-nacional">
+          <span class="level-trophy">🏆</span>
+          <div class="level-top">
+            <span class="level-num">03</span>
+            <div class="level-bars"><span style="height:10px;"></span><span style="height:18px;"></span><span style="height:14px;"></span></div>
+          </div>
+          <h4>Nacional</h4>
+          <p class="level-desc">El estándar de quienes buscan puntaje nacional. Máxima exigencia.</p>
+          <div class="level-meta">40 problemas · por eje y sub-eje</div>
+        </div>
+      </div>
+      <p class="resource-note"><b>Cada quiz evalúa por eje y sub-eje temático</b> — no es solo "correcto o incorrecto": sabrás exactamente en qué habilidad específica estás fallando, no solo en qué módulo.</p>
+    </div>
+  </div>
+</section>
+
+<section id="testimonios">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Resultados</span>
+      <h2>Lo que dicen quienes ya rindieron.</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-jump">
+          <span class="to-wrap"><span class="avatar" style="background:var(--orange)">JP</span><span class="to">1000 puntos</span></span>
+        </div>
+        <p class="testi-quote">"Lo que más me sirvió fueron los ensayos cronometrados: llegué a la prueba real sin sorpresas de tiempo."</p>
+        <div class="testi-who"><b>Javiera P.</b> — Medicina, Pontificia Universidad Católica</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-jump">
+          <span class="to-wrap"><span class="avatar" style="background:var(--blue)">MR</span><span class="to">1000 puntos</span></span>
+        </div>
+        <p class="testi-quote">"En M1 sentía que nunca iba a mejorar. El seguimiento semanal me mostró exactamente dónde estaba perdiendo puntos."</p>
+        <div class="testi-who"><b>Matías R.</b> — Medicina, Pontificia Universidad Católica</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-jump">
+          <span class="to-wrap"><span class="avatar" style="background:#8A4A1E">FO</span><span class="to">1000 puntos</span></span>
+        </div>
+        <p class="testi-quote">"Las tutorías 1:1 en Ciencias fueron el punto de quiebre. Pasé de memorizar a entender realmente los procesos."</p>
+        <div class="testi-who"><b>Fernanda O.</b> — Medicina, Pontificia Universidad Católica</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="plans" id="planes">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Planes</span>
+      <h2>Precio simple: por curso, sin letra chica.</h2>
+      <p>Cada módulo cuesta lo mismo — arma tu plan según cuántos cursos necesites. Incluye material propio, corrección de ensayos y acceso a la plataforma de seguimiento de puntaje.</p>
+    </div>
+    <div class="plan-grid">
+      <div class="plan-card">
+        <h3>1 curso</h3>
+        <p class="plan-desc">Para quienes necesitan reforzar un solo módulo.</p>
+        <div class="plan-price">$8.000<span> / mes</span></div>
+        <ul class="plan-list">
+          <li>1 módulo a elección (M1, M2 o Ciencias)</li>
+          <li>1 ensayo mensual corregido</li>
+          <li>Material digital incluido</li>
+          <li>Grupo de dudas por WhatsApp</li>
+        </ul>
+        <a href="#contacto" class="btn btn-primary">Elegir 1 curso</a>
+      </div>
+      <div class="plan-card featured">
+        <span class="plan-tag">Más elegido</span>
+        <h3>2 cursos</h3>
+        <p class="plan-desc">Matemática + Ciencias, la combinación más pedida.</p>
+        <div class="plan-price">$16.000<span> / mes</span></div>
+        <ul class="plan-list">
+          <li>2 módulos a elección</li>
+          <li>Ensayo quincenal cronometrado</li>
+          <li>Seguimiento personalizado de puntaje</li>
+          <li>Grupo de dudas por WhatsApp</li>
+        </ul>
+        <a href="#contacto" class="btn btn-primary">Elegir 2 cursos</a>
+      </div>
+      <div class="plan-card">
+        <h3>3 cursos</h3>
+        <p class="plan-desc">M1, M2 y Ciencias — preparación completa.</p>
+        <div class="plan-price">$24.000<span> / mes</span></div>
+        <ul class="plan-list">
+          <li>Los 3 módulos completos</li>
+          <li>Ensayo semanal cronometrado</li>
+          <li>Seguimiento personalizado de puntaje</li>
+          <li>1 tutoría 1:1 mensual incluida</li>
+        </ul>
+        <a href="#contacto" class="btn btn-primary">Elegir 3 cursos</a>
+      </div>
+    </div>
+    <p class="plans-note">10% de descuento pagando al contado · Aceptamos tarjetas bancarias de débito y crédito.</p>
+  </div>
+</section>
+
+<section id="contacto">
+  <div class="wrap contact-grid">
+    <div class="contact-info">
+      <span class="eyebrow">Contacto</span>
+      <h3 style="margin-top:14px;">Agenda tu clase diagnóstico gratuita.</h3>
+      <p>Completa el formulario y te contactamos dentro de 24 horas hábiles para coordinar tu evaluación diagnóstica sin costo.</p>
+      <div class="info-row"><span class="k">Correo</span><span class="v">contacto@mirzacortes.cl</span></div>
+      <div class="info-row"><span class="k">Teléfono</span><span class="v">+56 9 0000 0000</span></div>
+      <div class="info-row"><span class="k">Ubicación</span><span class="v">Chile · clases presenciales y online</span></div>
+      <a href="https://wa.me/56900000000" target="_blank" class="btn btn-primary wa-btn">Escríbenos por WhatsApp</a>
+    </div>
+
+    <form id="contactForm">
+      <div class="form-row">
+        <div class="field">
+          <label for="nombre">Nombre completo</label>
+          <input type="text" id="nombre" required placeholder="Tu nombre">
+        </div>
+        <div class="field">
+          <label for="telefono">Teléfono</label>
+          <input type="tel" id="telefono" required placeholder="+56 9 ....">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="field full">
+          <label for="email">Correo electrónico</label>
+          <input type="email" id="email" required placeholder="tucorreo@mail.com">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="field full">
+          <label for="curso">Módulo de interés</label>
+          <select id="curso">
+            <option>Competencia Matemática 1 (M1)</option>
+            <option>Competencia Matemática 2 (M2)</option>
+            <option>Ciencias (CIE)</option>
+            <option>No estoy seguro — quiero orientación</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="field full">
+          <label for="mensaje">Mensaje (opcional)</label>
+          <textarea id="mensaje" placeholder="Cuéntanos tu puntaje objetivo o dudas puntuales"></textarea>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary form-submit">Solicitar entrevista</button>
+      <p class="form-msg" id="formMsg">✓ Solicitud enviada. Te contactaremos dentro de 24 horas hábiles.</p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-wrap">
+    <div class="brand">
+      <img class="brand-mark sm" src="/logo-mark.png" width="28" height="28" alt="">
+      <div class="brand-name" style="font-size:15px;">Mirza Cortés</div>
+    </div>
+    <p>© 2026 Academia Mirza Cortés · Preuniversitario PAES, Chile</p>
+  </div>
+</footer>
+
+<script>
+  // menu mobile stub
+  document.querySelector('.menu-btn').addEventListener('click', () => {
+    const links = document.querySelector('.nav-links');
+    links.style.display = links.style.display === 'flex' ? 'none' : 'flex';
+    links.style.cssText += 'flex-direction:column; position:absolute; top:64px; left:0; right:0; background:#3A2380; padding:20px 28px; border-bottom:1px solid rgba(255,255,255,.14);';
+  });
+
+  // form submit (front-end only — connect to backend / Google Forms / email service for production)
+  document.getElementById('contactForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    document.getElementById('formMsg').classList.add('show');
+    this.reset();
+  });
+
+  // re-trigger bubble pop animation periodically for subtle life in the hero
+  const bubbleRows = document.querySelectorAll('.bubbles');
+  setInterval(() => {
+    bubbleRows.forEach(row => {
+      const filled = row.querySelector('.fill');
+      if(filled){
+        filled.style.animation = 'none';
+        void filled.offsetWidth;
+        filled.style.animation = 'pop .5s ease';
+      }
+    });
+  }, 4000);
+  // sonido suave de clic para todos los botones
+  let audioCtx;
+  function playClickSound(){
+    try{
+      audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
+      if(audioCtx.state === 'suspended') audioCtx.resume();
+      const t = audioCtx.currentTime;
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(680, t);
+      osc.frequency.exponentialRampToValueAtTime(420, t + 0.09);
+      gain.gain.setValueAtTime(0.0001, t);
+      gain.gain.exponentialRampToValueAtTime(0.1, t + 0.012);
+      gain.gain.exponentialRampToValueAtTime(0.0001, t + 0.1);
+      osc.connect(gain).connect(audioCtx.destination);
+      osc.start(t);
+      osc.stop(t + 0.11);
+    }catch(e){}
+  }
+  document.querySelectorAll('.btn').forEach(btn => btn.addEventListener('click', playClickSound));
+</script>
+
+</body>
+</html>
