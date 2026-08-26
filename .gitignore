@@ -6,6 +6,11 @@
 # Railway CLI local state
 .railway/
 
+# Entregas de diseno: HTML de ~12 MB con todo embebido en base64. Su contenido
+# se extrae a public/ con tools/, asi que versionarlas duplicaria el repo.
+academiamirzacortes*.html
+*standalone*.html
+
 # Tooling
 node_modules/
 __pycache__/
