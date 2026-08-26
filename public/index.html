@@ -4,17 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Academia Mirza Cortés — Preuniversitario PAES</title>
-<meta name="description" content="Preuniversitario PAES especialista en Matemática (M1, M2) y Ciencias. Clases por módulo, ensayos cronometrados y seguimiento personalizado de puntaje.">
+<meta name="description" content="Preuniversitario PAES 100% online, especialista en Matemática (M1, M2) y Ciencias. Diagnóstico con IA, clases por módulo y seguimiento personalizado de tu puntaje.">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<meta name="theme-color" content="#3A2380">
+<meta name="theme-color" content="#FFFFFF">
 <link rel="canonical" href="https://academia-mirza-cortes-production.up.railway.app/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_CL">
 <meta property="og:site_name" content="Academia Mirza Cortés">
 <meta property="og:url" content="https://academia-mirza-cortes-production.up.railway.app/">
 <meta property="og:title" content="Academia Mirza Cortés — Preuniversitario PAES">
-<meta property="og:description" content="Especialistas en Matemática (M1, M2) y Ciencias PAES. Clases por módulo, ensayos cronometrados y seguimiento personalizado de tu puntaje.">
+<meta property="og:description" content="Preuniversitario PAES 100% online, especialista en Matemática y Ciencias. Diagnóstico con IA y seguimiento personalizado de tu puntaje.">
 <meta property="og:image" content="https://academia-mirza-cortes-production.up.railway.app/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -22,23 +22,24 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800;9..144,900&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#F4F5F7;
+    --bg:#F5F3FF;
     --paper:#FFFFFF;
     --ink:#0E1B33;
     --slate:#5B6272;
     --line:#E1E3E9;
-    --orange:#F5760B;
-    --orange-dark:#C85A05;
-    --blue:#4B2E9E;
-    --blue-dark:#3A2380;
+    --orange:#FF6B00;
+    --orange-dark:#E05E00;
+    --violet:#6D28D9;
+    --violet-dark:#4C1D95;
+    --gold:#D4AF37;
   }
   *{box-sizing:border-box; margin:0; padding:0;}
   html{scroll-behavior:smooth;}
   body{
-    background:linear-gradient(180deg, #4B2E9E 0%, #3D2690 45%, #3A2380 100%);
+    background:var(--paper);
     color:var(--ink);
     font-family:'Inter',sans-serif;
     line-height:1.5;
@@ -46,352 +47,395 @@
   }
   img,svg{display:block; max-width:100%;}
   a{color:inherit; text-decoration:none;}
-  .mono{font-family:'JetBrains Mono',monospace;}
   .wrap{max-width:1180px; margin:0 auto; padding:0 28px;}
-  h1,h2,h3{font-family:'Fraunces',serif; font-weight:600; letter-spacing:-0.01em; color:var(--ink);}
-  .eyebrow{
-    font-family:'JetBrains Mono',monospace;
-    font-size:12.5px; letter-spacing:.14em; text-transform:uppercase;
-    color:var(--orange); font-weight:600;
-    display:inline-flex; align-items:center; gap:8px;
-  }
-  .eyebrow::before{content:''; width:16px; height:1px; background:var(--orange);}
-  .hero-hook{
-    display:inline-flex; align-items:center; gap:10px; flex-wrap:wrap;
-    background:rgba(245,118,11,.24); border:1.5px solid rgba(245,118,11,.6);
-    color:#FFEFDD; font-size:15.5px; font-weight:700;
-    padding:12px 24px; border-radius:999px; margin-bottom:26px;
-  }
-  .hero-hook .trophy{font-size:18px;}
-  .hero-hook span{color:#EDE9F9; font-weight:500; opacity:.9;}
-  .hero .eyebrow{margin-top:2px;}
+  h1,h2,h3{font-family:'Fraunces',serif; font-weight:800; letter-spacing:-0.02em; color:var(--ink);}
 
   /* ---------- NAV ---------- */
   header{
-    position:sticky; top:0; z-index:50;
-    background:rgba(58,35,128,.82); backdrop-filter:blur(10px);
-    border-bottom:1px solid rgba(255,255,255,.14);
+    position:fixed; top:0; left:0; right:0; z-index:50;
+    background:rgba(255,255,255,.92); backdrop-filter:blur(12px);
+    border-bottom:3px solid var(--orange);
+    box-shadow:0 2px 20px rgba(0,0,0,.08);
   }
   nav{
     display:flex; align-items:center; justify-content:space-between; gap:14px;
-    padding:18px 0;
+    padding:14px 0;
   }
-  .brand{display:flex; align-items:center; gap:10px;}
+  .brand{display:flex; align-items:center; gap:12px;}
   .brand-mark{
-    width:36px; height:36px; flex-shrink:0; display:block;
+    height:52px; width:auto; flex-shrink:0; display:block;
   }
-  .brand-mark.sm{width:28px; height:28px;}
-  .brand-name{font-family:'Fraunces',serif; font-weight:600; font-size:18px; line-height:1.1; color:#fff;}
-  .brand-name span{display:block; font-family:'JetBrains Mono',monospace; font-weight:500; font-size:10.5px; letter-spacing:.12em; color:#C9C2E8; text-transform:uppercase; margin-top:2px;}
-  .nav-links{display:flex; gap:34px; align-items:center;}
-  .nav-links a{font-size:14.5px; font-weight:500; color:#fff; opacity:.78; transition:opacity .15s;}
-  .nav-links a:hover{opacity:1;}
+  .brand-name{font-family:'Fraunces',serif; font-weight:800; font-size:18px; line-height:1.1; color:var(--violet-dark);}
+  .brand-name span{display:block; font-family:'JetBrains Mono',monospace; font-weight:700; font-size:10px; letter-spacing:.14em; color:var(--orange); text-transform:uppercase; margin-top:2px;}
+  .nav-links{display:flex; gap:32px; align-items:center;}
+  .nav-links a{font-size:14.5px; font-weight:700; color:var(--violet-dark); transition:color .15s;}
+  .nav-links a:hover{color:var(--orange);}
   .btn{
     display:inline-flex; align-items:center; justify-content:center; gap:8px;
-    padding:11px 22px; border-radius:8px; font-weight:600; font-size:14.5px;
-    cursor:pointer; border:1px solid transparent; transition:transform .15s, background .15s, color .15s;
+    font-weight:800; font-size:14px; cursor:pointer; border:none;
+    transition:transform .15s, background .15s, box-shadow .15s;
   }
-  .btn-primary{background:#fff; color:var(--ink);}
-  .btn-primary:hover{background:var(--orange); color:#fff;}
-  .btn-ghost{border-color:rgba(255,255,255,.4); color:#fff; background:transparent;}
-  .btn-ghost:hover{border-color:#fff;}
-  .nav-cta{display:flex; gap:12px;}
-  .nav-cta .btn-primary{padding:8px 17px; font-size:13.5px;}
-  .menu-btn{display:none; background:none; border:none; cursor:pointer; color:#fff; font-size:20px;}
+  .btn:hover{transform:translateY(-2px);}
+  .btn-pill{padding:12px 28px; border-radius:999px;}
+  .btn-primary{background:var(--orange); color:#fff; box-shadow:0 0 20px rgba(255,107,0,.3);}
+  .btn-primary:hover{background:var(--orange-dark); box-shadow:0 0 30px rgba(255,107,0,.45);}
+  .btn-outline{background:transparent; border:2px solid var(--gold); color:var(--gold);}
+  .btn-outline:hover{background:var(--gold); color:var(--violet-dark);}
+  .btn-outline-white{background:transparent; border:2px solid var(--gold); color:var(--gold);}
+  .btn-outline-white:hover{background:var(--gold); color:var(--violet-dark);}
+  .nav-cta{display:flex; gap:12px; align-items:center;}
+  .nav-cta .nav-link-text{font-size:13.5px; font-weight:700; color:var(--violet); transition:color .15s;}
+  .nav-cta .nav-link-text:hover{color:var(--orange);}
+  .menu-btn{display:none; background:none; border:none; cursor:pointer; color:var(--violet-dark); font-size:22px;}
 
   /* ---------- HERO ---------- */
-  .hero{padding:88px 0 96px; position:relative; overflow:hidden;}
-  .hero-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:64px; align-items:center;}
-  .hero h1{font-size:clamp(34px,4.6vw,58px); line-height:1.04; margin:18px 0 22px; color:#fff;}
-  .hero h1 em{font-style:normal; color:var(--orange);}
-  .hero p.lede{font-size:17.5px; color:#D3CCEF; max-width:46ch; margin-bottom:32px;}
-  .hero-ctas{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:38px;}
-  .btn-hero{background:var(--orange); color:#fff;}
-  .btn-hero:hover{background:var(--orange-dark);}
-  .hero-proof{display:flex; gap:28px; flex-wrap:wrap;}
-  .proof-item{font-size:13px; color:#C9C2E8;}
-  .proof-item b{display:block; font-family:'JetBrains Mono',monospace; color:#fff; font-size:20px; font-weight:700;}
-
-  /* answer-sheet signature visual */
-  .sheet{
-    background:var(--paper); border:1px solid var(--line); border-radius:16px;
-    padding:30px 28px; box-shadow:0 24px 48px -24px rgba(16,19,31,.18);
+  .hero{
+    padding:180px 0 100px;
+    background:linear-gradient(135deg, var(--violet-dark) 0%, var(--violet) 50%, #7C3AED 100%);
+    text-align:center; position:relative; overflow:hidden;
   }
-  .sheet-top{display:flex; justify-content:space-between; align-items:baseline; margin-bottom:22px; padding-bottom:16px; border-bottom:1px dashed var(--line);}
-  .sheet-top .label{font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--slate);}
-  .sheet-top .score{font-family:'JetBrains Mono',monospace; font-size:34px; font-weight:700; color:var(--blue);}
-  .sheet-row{display:flex; align-items:center; gap:14px; padding:9px 0;}
-  .sheet-row .qnum{font-family:'JetBrains Mono',monospace; font-size:12.5px; color:var(--slate); width:26px; flex-shrink:0;}
-  .bubbles{display:flex; gap:9px;}
-  .bubble{
-    width:24px; height:24px; border-radius:50%; border:1.6px solid #C6CAD3;
-    display:flex; align-items:center; justify-content:center;
-    font-family:'JetBrains Mono',monospace; font-size:10.5px; color:#9AA0AC;
-    flex-shrink:0;
+  .hero::before{
+    content:''; position:absolute; width:500px; height:500px;
+    background:var(--orange); border-radius:50%; filter:blur(140px); opacity:.18;
+    top:-100px; left:-100px;
   }
-  .bubble.fill{background:var(--orange); border-color:var(--orange); color:#fff; animation:pop .5s ease;}
-  @keyframes pop{0%{transform:scale(.4); opacity:0;} 60%{transform:scale(1.15);} 100%{transform:scale(1); opacity:1;}}
-  .sheet-note{margin-top:18px; padding-top:16px; border-top:1px dashed var(--line); font-size:12.5px; color:var(--slate); display:flex; align-items:center; gap:8px;}
-  .dot{width:7px; height:7px; border-radius:50%; background:var(--blue); flex-shrink:0;}
+  .hero::after{
+    content:''; position:absolute; width:400px; height:400px;
+    background:#7C3AED; border-radius:50%; filter:blur(120px); opacity:.25;
+    bottom:-80px; right:-60px;
+  }
+  .hero .wrap{position:relative; z-index:2;}
+  .hero-badge{
+    display:inline-flex; align-items:center; gap:8px;
+    background:rgba(255,255,255,.1); border:1.5px solid rgba(255,107,0,.5);
+    backdrop-filter:blur(8px);
+    color:#fff; font-size:14px; font-weight:700;
+    padding:10px 24px; border-radius:999px; margin-bottom:36px;
+  }
+  .hero-badge .accent{color:var(--gold); font-weight:700;}
+  .hero h1{
+    font-size:clamp(36px,5.5vw,72px); line-height:1.05; color:#fff;
+    max-width:900px; margin:0 auto 28px;
+  }
+  .hero h1 em{
+    font-style:italic;
+    background:linear-gradient(90deg, var(--orange), var(--gold));
+    -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+    background-clip:text;
+  }
+  .hero .lede{
+    font-size:18px; color:rgba(255,255,255,.8); max-width:700px;
+    margin:0 auto 40px; font-weight:500; line-height:1.7;
+  }
+  .hero .lede strong{color:#fff; font-weight:700;}
+  .hero-ctas{display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-bottom:56px;}
+  .hero-stats{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:32px;
+    max-width:700px; margin:0 auto;
+    padding-top:40px; border-top:1px solid rgba(255,255,255,.12);
+  }
+  .stat-num{font-family:'Inter',sans-serif; font-size:clamp(32px,4vw,48px); font-weight:900; color:var(--orange);}
+  .stat-label{font-family:'JetBrains Mono',monospace; font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:rgba(255,255,255,.6); margin-top:4px;}
 
   /* ---------- SECTION SHELL ---------- */
-  section{padding:96px 0;}
-  .sec-head{max-width:640px; margin-bottom:52px;}
-  .sec-head h2{font-size:clamp(28px,3.2vw,40px); margin-top:14px;}
-  .sec-head p{color:var(--slate); font-size:16px; margin-top:14px;}
-  #testimonios .sec-head h2{color:#fff;}
-  #testimonios .sec-head p{color:#D3CCEF;}
+  section{padding:100px 0;}
+  .sec-head{max-width:700px; margin:0 auto 56px; text-align:center;}
+  .sec-tag{
+    display:inline-block; font-family:'JetBrains Mono',monospace;
+    font-size:12px; font-weight:800; letter-spacing:.12em; text-transform:uppercase;
+    color:var(--orange); background:rgba(255,107,0,.08);
+    padding:6px 16px; border-radius:999px; margin-bottom:18px;
+  }
+  .sec-head h2{font-size:clamp(28px,3.4vw,44px); margin-bottom:16px; line-height:1.1;}
+  .sec-head p{color:var(--slate); font-size:17px; line-height:1.7; font-weight:500;}
+
+  /* ---------- DEMO VIDEOS ---------- */
+  .demo-videos{background:var(--paper);}
+  .demo-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:36px; max-width:980px; margin:0 auto;}
+  .phone-frame{
+    position:relative; background:var(--violet-dark); border-radius:36px;
+    padding:14px 14px 22px; box-shadow:0 20px 50px rgba(15,10,40,.25);
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .phone-frame:hover{transform:translateY(-6px); box-shadow:0 28px 64px rgba(15,10,40,.32);}
+  .phone-frame::before{
+    content:''; position:absolute; top:6px; left:50%; transform:translateX(-50%);
+    width:70px; height:5px; border-radius:999px; background:rgba(255,255,255,.25);
+  }
+  .phone-screen{
+    position:relative; border-radius:24px; overflow:hidden; background:#000;
+    aspect-ratio:9/19.3;
+  }
+  .phone-screen video{width:100%; height:100%; object-fit:cover; display:block;}
+  .sound-toggle{
+    position:absolute; top:12px; right:12px; z-index:2;
+    width:36px; height:36px; border-radius:50%; border:none; cursor:pointer;
+    background:rgba(14,27,51,.55); backdrop-filter:blur(4px); color:#fff; font-size:16px;
+    display:flex; align-items:center; justify-content:center;
+    transition:background .15s, transform .15s;
+  }
+  .sound-toggle:hover{background:rgba(14,27,51,.75); transform:scale(1.08);}
+  .demo-caption{text-align:center; margin-top:16px;}
+  .demo-caption h4{font-family:'Fraunces',serif; font-size:17px; font-weight:800; color:var(--violet-dark);}
+  .demo-caption p{color:var(--slate); font-size:14px; margin-top:4px;}
 
   /* ---------- CURSOS ---------- */
-  .courses{background:linear-gradient(150deg, #FFE4C2 0%, #FFC98A 55%, #FFB35C 100%); border-top:1px solid rgba(200,90,5,.25); border-bottom:1px solid rgba(200,90,5,.25);}
-  .courses .eyebrow, .courses .eyebrow::before{color:#7A3D02;}
-  .courses .eyebrow::before{background:#7A3D02;}
-  .course-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+  .courses{background:var(--bg);}
+  .course-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
   .course-card{
-    background:var(--paper); border:1.5px solid var(--line); border-radius:14px;
-    padding:26px 24px; transition:transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+    background:var(--paper); border-radius:24px; padding:32px 28px;
+    border-bottom:4px solid var(--violet);
+    box-shadow:0 4px 24px rgba(0,0,0,.06);
+    transition:transform .25s ease, box-shadow .25s ease;
   }
-  .course-card:hover{
-    transform:translateY(-5px);
-    box-shadow:0 16px 32px -16px rgba(60,30,0,.28);
-  }
-  .course-card.accent-orange:hover{border-color:var(--orange);}
-  .course-card.accent-blue:hover{border-color:var(--blue);}
-  .course-card.accent-neutral:hover{border-color:#9AA0AC;}
+  .course-card:hover{transform:translateY(-6px); box-shadow:0 16px 40px rgba(0,0,0,.12);}
   .course-top{display:flex; align-items:center; justify-content:space-between; margin-bottom:20px;}
-  .course-code{
-    font-family:'JetBrains Mono',monospace; font-weight:700; font-size:13px;
-    border:1px solid currentColor; border-radius:6px;
-    display:inline-block; padding:3px 9px;
+  .course-code{font-family:'Inter',sans-serif; font-weight:900; font-size:28px; color:var(--violet);}
+  .course-check{
+    width:36px; height:36px; border-radius:50%;
+    background:rgba(255,107,0,.1); display:flex; align-items:center; justify-content:center;
+    color:var(--orange); font-weight:900; font-size:18px;
   }
-  .accent-orange .course-code{color:var(--orange);}
-  .accent-blue .course-code{color:var(--blue);}
-  .accent-neutral .course-code{color:#7B7F8C;}
-  .course-bubble{
-    width:22px; height:22px; border-radius:50%; flex-shrink:0;
-    display:flex; align-items:center; justify-content:center;
-    font-size:11px; font-weight:700; color:#fff;
-  }
-  .accent-orange .course-bubble{background:var(--orange);}
-  .accent-blue .course-bubble{background:var(--blue);}
-  .accent-neutral .course-bubble{background:#9AA0AC;}
-  .course-card h3{font-size:19px; margin-bottom:8px;}
-  .course-card p{font-size:14px; color:var(--slate); line-height:1.55;}
+  .course-card h3{font-size:20px; margin-bottom:8px; font-weight:700;}
+  .course-card p{font-size:14.5px; color:var(--slate); line-height:1.6; margin-bottom:20px; font-weight:500;}
   .course-meta{
-    font-family:'JetBrains Mono',monospace; font-size:11.5px; color:var(--slate);
-    margin-top:18px; padding-top:16px; border-top:1px dashed var(--line);
-    letter-spacing:.02em;
+    font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700;
+    color:var(--violet); text-transform:uppercase; letter-spacing:.04em;
+    background:var(--bg); display:inline-block; padding:6px 14px; border-radius:8px;
+    border:1px solid rgba(109,40,217,.15);
   }
 
-  /* ---------- RECURSOS (dentro de cada módulo) ---------- */
+  /* ---------- RECURSOS ---------- */
   .resources{background:var(--paper);}
-  .resource-group{margin-bottom:56px;}
-  .resource-group:last-child{margin-bottom:0;}
-  .resource-group-head{display:flex; align-items:baseline; gap:12px; margin-bottom:24px; flex-wrap:wrap;}
-  .resource-group-title{font-size:20px;}
-  .resource-group-tag{
-    font-family:'JetBrains Mono',monospace; font-size:11.5px; letter-spacing:.06em;
-    text-transform:uppercase; color:var(--slate); background:var(--bg);
-    padding:4px 10px; border-radius:6px;
+  .resources-layout{display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:start;}
+  .resources-text .sec-tag{margin-bottom:18px;}
+  .resources-text h2{font-size:clamp(28px,3vw,40px); text-align:left; margin-bottom:16px; line-height:1.1;}
+  .resources-text>p{color:var(--slate); font-size:16px; line-height:1.7; margin-bottom:36px; font-weight:500;}
+  .format-list{display:flex; flex-direction:column; gap:20px;}
+  .format-item{display:flex; gap:16px; align-items:flex-start;}
+  .format-icon{
+    width:52px; height:52px; border-radius:16px; flex-shrink:0;
+    background:var(--bg); display:flex; align-items:center; justify-content:center;
+    font-size:22px; box-shadow:inset 0 1px 3px rgba(0,0,0,.06);
   }
+  .format-item h4{font-family:'Inter',sans-serif; font-size:17px; font-weight:800; margin-bottom:4px; color:var(--ink);}
+  .format-item p{font-size:14px; color:var(--slate); line-height:1.55; font-weight:500;}
 
-  .format-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
-  .format-card{
-    border-radius:16px; overflow:hidden;
-    transition:transform .2s ease, box-shadow .2s ease;
-    background:var(--paper); border:1.5px solid var(--line);
+  .eval-panel{
+    background:var(--violet-dark); border-radius:32px; padding:40px 36px;
+    box-shadow:0 20px 60px rgba(76,29,149,.25); position:relative; overflow:hidden;
+    border:1px solid var(--violet);
   }
-  .format-card:hover{transform:translateY(-6px); box-shadow:0 20px 40px -18px rgba(16,19,31,.28);}
-  .format-preview{
-    height:150px; display:flex; align-items:center; justify-content:center; position:relative;
+  .eval-panel::before{
+    content:''; position:absolute; width:200px; height:200px;
+    background:var(--violet); border-radius:50%; filter:blur(80px); opacity:.4;
+    top:-60px; right:-40px;
   }
-  .format-podcast .format-preview{background:linear-gradient(160deg, #F5760B 0%, #C85A05 100%);}
-  .format-infografia .format-preview{background:linear-gradient(160deg, #4B2E9E 0%, #3A2380 100%);}
-  .format-video .format-preview{background:linear-gradient(160deg, #1C2333 0%, #0E1B33 100%);}
-  .format-body{padding:22px 24px 24px;}
-  .format-kicker{
-    font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase;
-    display:block; margin-bottom:8px;
+  .eval-panel h3{font-size:26px; color:#fff; margin-bottom:6px; position:relative; z-index:2;}
+  .eval-panel .eval-sub{
+    font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700;
+    text-transform:uppercase; letter-spacing:.1em; color:var(--orange);
+    margin-bottom:32px; position:relative; z-index:2;
   }
-  .format-podcast .format-kicker{color:var(--orange-dark);}
-  .format-infografia .format-kicker{color:var(--blue);}
-  .format-video .format-kicker{color:var(--ink);}
-  .format-card h4{font-family:'Fraunces',serif; font-weight:600; font-size:19px; margin-bottom:8px;}
-  .format-card p{font-size:14px; color:var(--slate); line-height:1.55;}
-
-  /* podcast waveform */
-  .waveform{display:flex; align-items:center; gap:4px; height:56px;}
-  .waveform span{width:5px; border-radius:3px; background:rgba(255,255,255,.85);}
-  .play-btn{
-    width:52px; height:52px; border-radius:50%; background:rgba(255,255,255,.95);
-    display:flex; align-items:center; justify-content:center; flex-shrink:0; position:relative; z-index:2;
+  .eval-level{
+    background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.06);
+    border-radius:16px; padding:20px 22px; margin-bottom:14px;
+    backdrop-filter:blur(4px); position:relative; z-index:2;
   }
-  .play-btn::after{content:''; border-style:solid; border-width:8px 0 8px 13px; border-color:transparent transparent transparent var(--orange-dark); margin-left:3px;}
-  .format-podcast .format-preview{gap:16px;}
-
-  /* infografia mini chart */
-  .mini-chart{display:flex; align-items:flex-end; gap:7px; height:64px;}
-  .mini-chart span{width:14px; border-radius:4px 4px 0 0; background:rgba(255,255,255,.9);}
-  .mini-chart span:nth-child(1){background:rgba(255,255,255,.55);}
-  .mini-chart span:nth-child(3){background:var(--orange);}
-
-  /* video thumbnail */
-  .video-play{
-    width:58px; height:58px; border-radius:50%; background:var(--orange);
-    display:flex; align-items:center; justify-content:center;
+  .eval-level:last-child{margin-bottom:0;}
+  .eval-level-head{display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;}
+  .eval-level h4{font-family:'Inter',sans-serif; font-size:17px; font-weight:800; color:#fff;}
+  .eval-level .eval-badge{
+    font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:700;
+    background:rgba(255,255,255,.15); color:#fff; padding:4px 12px; border-radius:999px;
   }
-  .video-play::after{content:''; border-style:solid; border-width:10px 0 10px 16px; border-color:transparent transparent transparent #fff; margin-left:4px;}
-  .video-frame{position:absolute; inset:14px; border:1.5px solid rgba(255,255,255,.25); border-radius:8px; pointer-events:none;}
-
-  .level-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
-  .level-card{
-    border-radius:14px; padding:26px 24px; position:relative; overflow:hidden;
-    transition:transform .2s ease, box-shadow .2s ease;
+  .eval-level p{font-size:13px; color:rgba(255,255,255,.65); line-height:1.5; font-weight:500;}
+  .eval-level.level-top{border-color:var(--orange); background:rgba(255,107,0,.12);}
+  .eval-level.level-top h4{color:var(--orange);}
+  .eval-note{
+    margin-top:24px; font-size:13.5px; color:var(--slate); max-width:60ch;
+    padding:16px 20px; background:var(--bg); border-radius:12px;
+    border-left:3px solid var(--orange); font-weight:500;
   }
-  .level-card:hover{transform:translateY(-4px); box-shadow:0 16px 32px -18px rgba(16,19,31,.25);}
-  .level-basico{background:#FFF3E8; border:1.5px solid rgba(245,118,11,.3);}
-  .level-experto{background:var(--orange); border:1.5px solid var(--orange);}
-  .level-nacional{background:var(--ink); border:1.5px solid var(--ink);}
-  .level-top{display:flex; align-items:center; justify-content:space-between; margin-bottom:22px;}
-  .level-num{font-family:'JetBrains Mono',monospace; font-weight:700; font-size:13px;}
-  .level-basico .level-num{color:var(--orange-dark);}
-  .level-experto .level-num{color:#fff; opacity:.85;}
-  .level-nacional .level-num{color:var(--orange);}
-  .level-bars{display:flex; align-items:flex-end; gap:3px; height:20px;}
-  .level-bars span{width:4px; border-radius:2px; background:currentColor;}
-  .level-basico .level-bars{color:var(--orange-dark);}
-  .level-experto .level-bars{color:#fff;}
-  .level-nacional .level-bars{color:var(--orange);}
-  .level-card h4{font-family:'Fraunces',serif; font-weight:600; font-size:19px; margin-bottom:6px;}
-  .level-basico h4{color:var(--ink);}
-  .level-experto h4{color:#fff;}
-  .level-nacional h4{color:#fff;}
-  .level-card .level-desc{font-size:13.5px; margin-bottom:20px;}
-  .level-basico .level-desc{color:var(--slate);}
-  .level-experto .level-desc{color:rgba(255,255,255,.85);}
-  .level-nacional .level-desc{color:#C9C2E8;}
-  .level-meta{
-    font-family:'JetBrains Mono',monospace; font-size:12px;
-    padding-top:16px; border-top:1px dashed;
-  }
-  .level-basico .level-meta{color:var(--orange-dark); border-color:rgba(245,118,11,.3);}
-  .level-experto .level-meta{color:#fff; border-color:rgba(255,255,255,.35);}
-  .level-nacional .level-meta{color:#C9C2E8; border-color:rgba(255,255,255,.18);}
-  .level-trophy{position:absolute; top:20px; right:22px; font-size:20px; opacity:.9;}
-
-  .resource-note{
-    margin-top:28px; font-size:14px; color:var(--slate); max-width:60ch;
-    padding:18px 20px; background:var(--bg); border-radius:10px; border-left:3px solid var(--orange);
-  }
-  .resource-note b{color:var(--ink);}
-
-  @media(max-width:920px){
-    .format-grid, .level-grid{grid-template-columns:1fr;}
-  }
+  .eval-note b{color:var(--ink); font-weight:700;}
 
   /* ---------- TESTIMONIOS ---------- */
+  .testimonios{background:linear-gradient(135deg, var(--violet-dark) 0%, var(--violet) 100%);}
+  .testimonios .sec-head h2{color:#fff;}
+  .testimonios .sec-head p{color:rgba(255,255,255,.65);}
+  .testimonios .sec-tag{background:rgba(255,107,0,.15); color:var(--orange);}
   .testi-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
   .testi-card{
-    background:var(--paper); border:1px solid var(--line); border-radius:14px; padding:28px;
+    background:var(--paper); border-radius:24px; padding:32px 28px;
     display:flex; flex-direction:column; gap:18px;
+    box-shadow:0 8px 32px rgba(0,0,0,.1);
   }
-  .testi-jump{display:flex; align-items:center; gap:10px; font-family:'JetBrains Mono',monospace; font-size:13px;}
-  .testi-jump .from{color:var(--slate);}
-  .testi-jump .arrow{color:#C6CAD3;}
-  .testi-jump .to{color:var(--blue); font-weight:700; font-size:16px;}
-  .to-wrap{display:inline-flex; align-items:center; gap:8px;}
-  .avatar{
-    width:26px; height:26px; border-radius:50%; flex-shrink:0;
+  .testi-score{
+    display:inline-flex; align-items:center; gap:10px;
+    font-family:'Inter',sans-serif; font-weight:900;
+  }
+  .testi-avatar{
+    width:30px; height:30px; border-radius:50%; flex-shrink:0;
     display:flex; align-items:center; justify-content:center;
     font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:700; color:#fff;
   }
-  .testi-quote{font-size:15px; color:var(--ink); line-height:1.6; flex-grow:1;}
-  .testi-who{font-size:13px; color:var(--slate); border-top:1px solid var(--line); padding-top:14px;}
-  .testi-who b{color:var(--ink); font-weight:600;}
+  .testi-pts{font-size:20px; color:var(--violet);}
+  .testi-quote{font-size:15px; color:var(--ink); line-height:1.65; flex-grow:1; font-weight:500;}
+  .testi-who{font-size:13px; color:var(--slate); border-top:1px solid var(--line); padding-top:14px; font-weight:500;}
+  .testi-who b{color:var(--ink); font-weight:700;}
 
   /* ---------- PLANES ---------- */
-  .plans{background:linear-gradient(165deg, #4B2E9E 0%, #3A2380 100%);}
-  .plans .eyebrow{color:var(--orange);}
-  .plans .sec-head h2, .plans .sec-head p{color:#fff;}
-  .plans .sec-head p{color:#D3CCEF;}
-  .plan-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+  .plans{background:var(--violet-dark); position:relative; overflow:hidden;}
+  .plans::before{
+    content:''; position:absolute; width:500px; height:500px;
+    background:var(--violet); border-radius:50%; filter:blur(150px); opacity:.3;
+    top:-200px; right:-100px;
+  }
+  .plans .wrap{position:relative; z-index:2;}
+  .plans .sec-head h2{color:#fff;}
+  .plans .sec-head p{color:rgba(255,255,255,.65);}
+  .plans .sec-tag{background:rgba(255,107,0,.15); color:var(--orange);}
+  .plan-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px; align-items:start;}
   .plan-card{
-    background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.16); border-radius:16px; padding:32px 26px;
+    background:var(--paper); border-radius:28px; padding:36px 30px;
     display:flex; flex-direction:column;
+    box-shadow:0 8px 32px rgba(0,0,0,.08);
+    border:1px solid var(--line);
+    transition:transform .25s ease;
   }
-  .plan-card.featured{border-color:var(--orange); background:rgba(255,255,255,.09); position:relative;}
+  .plan-card:hover{transform:translateY(-4px);}
+  .plan-card.featured{
+    background:var(--violet-dark); border:2px solid var(--orange);
+    box-shadow:0 16px 48px rgba(255,107,0,.2);
+    transform:translateY(-12px); position:relative;
+  }
+  .plan-card.featured:hover{transform:translateY(-16px);}
   .plan-tag{
-    position:absolute; top:-13px; left:26px; background:var(--orange); color:#fff;
-    font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase;
-    padding:5px 12px; border-radius:999px; font-weight:600;
+    position:absolute; top:-14px; left:50%; transform:translateX(-50%);
+    background:var(--orange); color:#fff;
+    font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.1em; text-transform:uppercase;
+    padding:6px 18px; border-radius:999px; font-weight:800; white-space:nowrap;
+    box-shadow:0 0 20px rgba(255,107,0,.4);
   }
-  .plan-card h3{color:#fff; font-size:20px; margin-bottom:6px;}
-  .plan-desc{color:#C9C2E8; font-size:13.5px; margin-bottom:22px;}
-  .plan-price{font-family:'JetBrains Mono',monospace; font-size:32px; font-weight:700; color:#fff; margin-bottom:2px;}
-  .plan-price span{font-size:13px; color:#C9C2E8; font-weight:400;}
+  .plan-card h3{font-size:22px; margin-bottom:6px;}
+  .plan-card.featured h3{color:#fff;}
+  .plan-desc{font-size:13.5px; margin-bottom:24px; font-weight:500;}
+  .plan-card .plan-desc{color:var(--slate);}
+  .plan-card.featured .plan-desc{color:rgba(255,255,255,.6);}
+  .plan-price{font-family:'Inter',sans-serif; font-size:42px; font-weight:900; margin-bottom:4px; padding-bottom:24px; border-bottom:1px solid var(--line);}
+  .plan-card .plan-price{color:var(--violet);}
+  .plan-card.featured .plan-price{color:var(--orange); border-color:rgba(255,255,255,.12);}
+  .plan-price span{font-size:14px; font-weight:700; margin-left:4px;}
+  .plan-card .plan-price span{color:var(--slate);}
+  .plan-card.featured .plan-price span{color:rgba(255,255,255,.5);}
   .plan-list{list-style:none; margin:24px 0 28px; flex-grow:1;}
-  .plan-list li{display:flex; gap:10px; font-size:13.5px; color:#E4E0F5; padding:7px 0; border-top:1px solid rgba(255,255,255,.12);}
-  .plan-list li:first-child{border-top:none;}
-  .plan-list li::before{content:'✓'; color:var(--blue); font-weight:700; flex-shrink:0;}
-  .plan-card .btn-primary{background:#fff; color:var(--ink);}
-  .plan-card.featured .btn-primary{background:var(--orange); color:#fff;}
-  .plan-card .btn-primary:hover{opacity:.88;}
-  .plans-note{margin-top:28px; font-size:13px; color:#7B7F8C; text-align:center;}
+  .plan-list li{display:flex; gap:12px; font-size:14px; padding:8px 0; font-weight:500;}
+  .plan-card .plan-list li{color:var(--ink);}
+  .plan-card.featured .plan-list li{color:rgba(255,255,255,.85);}
+  .plan-list li::before{content:'✓'; color:var(--orange); font-weight:900; flex-shrink:0;}
+  .plan-card .plan-btn{
+    display:block; text-align:center; padding:14px; border-radius:14px;
+    font-weight:800; font-size:14px; transition:all .2s;
+  }
+  .plan-card .plan-btn{background:var(--bg); color:var(--violet); border:1px solid rgba(109,40,217,.15);}
+  .plan-card .plan-btn:hover{background:var(--violet); color:#fff;}
+  .plan-card.featured .plan-btn{background:var(--orange); color:#fff; border:none; box-shadow:0 0 20px rgba(255,107,0,.3);}
+  .plan-card.featured .plan-btn:hover{background:var(--orange-dark);}
+  .plans-note{
+    margin-top:40px; text-align:center;
+    font-size:13.5px; font-weight:700; color:rgba(255,255,255,.7);
+    background:rgba(255,255,255,.06); display:inline-block; padding:12px 28px; border-radius:999px;
+    border:1px solid rgba(255,255,255,.08);
+  }
+  .plans-note-wrap{text-align:center;}
 
   /* ---------- CONTACTO ---------- */
-  .contact-grid{display:grid; grid-template-columns:.9fr 1.1fr; gap:56px; align-items:start;}
-  .contact-info h3{font-size:22px; margin-bottom:14px; color:#fff;}
-  .contact-info p{color:#D3CCEF; font-size:15px; margin-bottom:26px; max-width:40ch;}
-  .info-row{display:flex; gap:14px; padding:14px 0; border-top:1px solid rgba(255,255,255,.18);}
-  .info-row:last-of-type{border-bottom:1px solid rgba(255,255,255,.18);}
-  .info-row .k{font-family:'JetBrains Mono',monospace; font-size:11.5px; text-transform:uppercase; letter-spacing:.08em; color:#C9C2E8; width:90px; flex-shrink:0; padding-top:2px;}
-  .info-row .v{font-size:14.5px; font-weight:500; color:#fff;}
-  .wa-btn{margin-top:26px; background:var(--slate); color:#fff; border-radius:6px;}
-  .wa-btn:hover{background:#454B58; color:#fff;}
-
-  form{background:linear-gradient(150deg, #FFE4C2 0%, #FFC98A 55%, #FFB35C 100%); border:1px solid rgba(200,90,5,.25); border-radius:16px; padding:34px;}
-  .form-row{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;}
-  .field{display:flex; flex-direction:column; gap:7px;}
-  .field.full{grid-column:1/-1;}
-  label{font-size:12.5px; font-weight:600; color:#7A3D02;}
-  input, select, textarea{
-    font-family:'Inter',sans-serif; font-size:14.5px; padding:11px 13px;
-    border:1px solid var(--line); border-radius:8px; background:#FBFBFA; color:var(--ink);
-    outline:none; transition:border-color .15s;
+  .contacto{background:var(--bg);}
+  .contact-card{
+    max-width:800px; margin:0 auto;
+    background:var(--paper); border-radius:32px; padding:48px 44px;
+    box-shadow:0 12px 48px rgba(0,0,0,.06);
+    border-top:6px solid var(--orange);
   }
-  input:focus, select:focus, textarea:focus{border-color:var(--ink);}
-  textarea{resize:vertical; min-height:88px;}
-  .form-submit{width:100%; margin-top:6px; padding:13px; background:var(--orange); color:#fff;}
-  .form-submit:hover{background:var(--orange-dark);}
-  .form-msg{margin-top:14px; font-size:13.5px; color:var(--blue); display:none; font-weight:500;}
-  .form-msg.show{display:block;}
+  .contact-card .sec-tag{margin-bottom:14px;}
+  .contact-card h3{font-size:clamp(26px,3vw,38px); margin-bottom:16px; text-align:left; line-height:1.1;}
+  .contact-card>p{color:var(--slate); font-size:16px; line-height:1.7; margin-bottom:32px; font-weight:500; max-width:55ch;}
+  .info-item{
+    display:flex; gap:16px; align-items:center;
+    padding:16px 20px; background:var(--bg); border-radius:16px; margin-bottom:12px;
+    transition:background .15s;
+  }
+  .info-item:hover{background:rgba(109,40,217,.06);}
+  .info-icon{
+    width:44px; height:44px; border-radius:50%; background:var(--paper);
+    display:flex; align-items:center; justify-content:center;
+    font-size:18px; flex-shrink:0; box-shadow:0 2px 8px rgba(0,0,0,.05);
+  }
+  .info-k{font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:800; text-transform:uppercase; letter-spacing:.1em; color:var(--violet); margin-bottom:2px;}
+  .info-v{font-size:15px; font-weight:700; color:var(--ink);}
+  .wa-btn-wrap{margin-top:28px;}
+  .wa-btn{
+    display:inline-flex; align-items:center; gap:12px;
+    background:#25D366; color:#fff; padding:16px 32px; border-radius:16px;
+    font-weight:800; font-size:16px; border:none; cursor:pointer;
+    box-shadow:0 4px 16px rgba(37,211,102,.3);
+    transition:transform .15s, background .15s;
+    width:100%;justify-content:center;
+  }
+  .wa-btn:hover{transform:translateY(-2px); background:#1ebe57;}
+  .wa-btn svg{width:24px; height:24px; fill:currentColor; flex-shrink:0;}
 
-  footer{border-top:1px solid rgba(255,255,255,.16); padding:36px 0;}
+  footer{background:var(--violet-dark); border-top:3px solid var(--orange); padding:32px 0;}
   .foot-wrap{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;}
-  .foot-wrap p{font-size:13px; color:#C9C2E8;}
+  .foot-wrap p{font-size:13px; color:rgba(255,255,255,.6); font-weight:600;}
   footer .brand-name{color:#fff;}
+  footer .brand-name span{color:var(--gold);}
 
-  /* Los items de grid tienen min-width:auto por defecto, asi que no bajan de su
-     min-content y estiran la columna hasta desbordar el contenedor. En movil eso
-     hacia que la pagina se scrollease de lado: los <input> no encogen por debajo
-     de su size=20 (~308px) y forzaban la columna de contacto a 378px dentro de
-     un contenedor de 319px. */
-  .contact-grid > *, .course-grid > *, .format-grid > *,
-  .level-grid > *, .plan-grid > *, .testi-grid > *{min-width:0;}
-  input, select, textarea{min-width:0; width:100%;}
+  /* ---------- 3D ICONS ---------- */
+  .r3d-section{display:block; margin:0 auto 20px; width:80px; filter:drop-shadow(0 4px 12px rgba(0,0,0,.1)); animation:r3d-float 4.2s ease-in-out infinite; transform-origin:50% 85%;}
+  .r3d-inline{width:48px; filter:drop-shadow(0 3px 8px rgba(0,0,0,.1)); animation:r3d-float-sm 3.4s ease-in-out infinite; transform-origin:50% 85%;}
+  .r3d-contact{display:block; margin:0 auto 20px; width:90px; filter:drop-shadow(0 4px 12px rgba(0,0,0,.1)); animation:r3d-float 4.6s ease-in-out infinite .3s; transform-origin:50% 85%;}
 
+  .resources-text .r3d-inline{animation-delay:.6s;}
+  .format-item:nth-of-type(2) .r3d-inline{animation-delay:1.1s;}
+  .format-item:nth-of-type(3) .r3d-inline{animation-delay:1.6s;}
+  .plans .r3d-section{animation-duration:3.8s; animation-delay:.4s;}
+
+  @keyframes r3d-float{
+    0%,100%{transform:translateY(0) rotate(-2deg);}
+    50%{transform:translateY(-9px) rotate(2deg);}
+  }
+  @keyframes r3d-float-sm{
+    0%,100%{transform:translateY(0) rotate(0deg);}
+    50%{transform:translateY(-5px) rotate(-3deg);}
+  }
+  @media(prefers-reduced-motion: reduce){
+    .r3d-section, .r3d-inline, .r3d-contact{animation:none;}
+  }
+
+  /* ---------- RESPONSIVE ---------- */
   @media(max-width:920px){
-    .hero-grid{grid-template-columns:1fr;}
-    .nav-links, .nav-cta .btn-ghost{display:none;}
+    .hero{padding:140px 0 72px;}
+    .hero-stats{grid-template-columns:repeat(3,1fr); gap:16px;}
+    .nav-links, .nav-cta .nav-link-text{display:none;}
     .menu-btn{display:block; flex-shrink:0;}
     .nav-cta{flex-shrink:0;}
-    .nav-cta .btn-primary{padding:7px 13px; font-size:12.5px;}
+    .nav-cta .btn-pill{padding:9px 18px; font-size:12.5px;}
     .brand-name{font-size:15.5px;}
     .brand-name span{display:none;}
-    .course-grid{grid-template-columns:repeat(2,1fr); gap:14px;}
+    .course-grid{grid-template-columns:repeat(2,1fr); gap:16px;}
+    .demo-grid{grid-template-columns:repeat(2,1fr); gap:20px; max-width:100%;}
+    .resources-layout{grid-template-columns:1fr;}
     .testi-grid, .plan-grid{grid-template-columns:1fr;}
-    .contact-grid{grid-template-columns:1fr;}
-    .form-row{grid-template-columns:1fr;}
+    .plan-card.featured{transform:none;}
+    .plan-card.featured:hover{transform:translateY(-4px);}
+    .contact-card{padding:32px 24px;}
+  }
+  @media(max-width:500px){
+    .course-grid{grid-template-columns:1fr;}
+    .demo-grid{grid-template-columns:1fr; max-width:280px;}
+    .hero-stats{grid-template-columns:1fr; text-align:center;}
+    .hero-ctas{flex-direction:column; align-items:center;}
   }
 </style>
 </head>
@@ -401,19 +445,20 @@
   <div class="wrap">
     <nav>
       <div class="brand">
-        <img class="brand-mark" src="/logo-mark.png" width="36" height="36" alt="Academia Mirza Cortés">
-        <div class="brand-name">Mirza Cortés<span>Preuniversitario · PAES</span></div>
+        <img class="brand-mark" src="/assets/logo-brand.png" alt="Academia Mirza Cortés">
+        <div class="brand-name">Mirza Cortés<span>Preuniversitario PAES</span></div>
       </div>
       <div class="nav-links">
-        <a href="#cursos">Cursos</a>
-        <a href="#recursos">Recursos</a>
-        <a href="#testimonios">Testimonios</a>
+        <a href="#cursos">Módulos</a>
+        <a href="#recursos">Plataforma IA</a>
+        <a href="#demo">Video demo</a>
+        <a href="#testimonios">Resultados</a>
         <a href="#planes">Planes</a>
         <a href="#contacto">Contacto</a>
       </div>
       <div class="nav-cta">
-        <a href="https://wa.me/56900000000" target="_blank" class="btn btn-ghost">Habla con nosotros</a>
-        <a href="#planes" class="btn btn-primary">Matricúlate</a>
+        <a href="https://wa.me/56900000000" target="_blank" class="nav-link-text">Asesoría directa</a>
+        <a href="#planes" class="btn btn-pill btn-primary">Matricúlate</a>
       </div>
       <button class="menu-btn" aria-label="Abrir menú">☰</button>
     </nav>
@@ -421,47 +466,29 @@
 </header>
 
 <section class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <div class="hero-hook"><span class="trophy">🏆</span> El preuniversitario de los nacionales <span>· 137 puntajes nacionales a la fecha</span></div>
-      <span class="eyebrow">Preuniversitario de Ciencias y Matemáticas</span>
-      <h1>Cada respuesta correcta <em>suma</em> hacia el puntaje que necesitas.</h1>
-      <p class="lede">Clases por módulo, ensayos cronometrados y seguimiento personalizado de tu puntaje semana a semana — especialistas en Matemática y Ciencias PAES.</p>
-      <div class="hero-ctas">
-        <a href="#contacto" class="btn btn-primary btn-hero">Accede a la plataforma virtual</a>
-        <a href="#cursos" class="btn btn-ghost">Ver módulos</a>
-      </div>
-      <div class="hero-proof">
-        <div class="proof-item"><b>+850</b>alumnos preparados</div>
-        <div class="proof-item"><b>142 pts</b>alza promedio</div>
-        <div class="proof-item"><b>137</b>puntajes nacionales</div>
-      </div>
+    <div class="wrap">
+    <div class="hero-badge">
+      Preuniversitario con inteligencia artificial <span class="accent">· 137 Puntajes Nacionales</span>
     </div>
-
-    <div class="sheet">
-      <div class="sheet-top">
-        <span class="label">Puntaje promedio alumno</span>
-        <span class="score">742</span>
+    <h1>Estudia cuando quieras.<br><em>La IA se adapta</em> a tu ritmo, no al revés.</h1>
+    <p class="lede">Un preuniversitario 100% online donde la inteligencia artificial personaliza tu ruta de estudio en <strong>Matemática y Ciencias</strong>. Tú eliges el horario, la IA detecta tus brechas y arma el plan perfecto para subir tu puntaje PAES.</p>
+    <div class="hero-ctas">
+      <a href="#contacto" class="btn btn-pill btn-primary" style="padding:16px 40px; font-size:17px;">Empieza gratis hoy</a>
+      <a href="#cursos" class="btn btn-pill btn-outline-white" style="padding:16px 40px; font-size:17px;">Cómo funciona</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">+850</div>
+        <div class="stat-label">Alumnos preparados</div>
       </div>
-      <div class="sheet-row">
-        <span class="qnum">01</span>
-        <div class="bubbles">
-          <div class="bubble">A</div><div class="bubble fill">B</div><div class="bubble">C</div><div class="bubble">D</div><div class="bubble">E</div>
-        </div>
+      <div>
+        <div class="stat-num">142 pts</div>
+        <div class="stat-label">Alza promedio</div>
       </div>
-      <div class="sheet-row">
-        <span class="qnum">02</span>
-        <div class="bubbles">
-          <div class="bubble">A</div><div class="bubble">B</div><div class="bubble">C</div><div class="bubble fill">D</div><div class="bubble">E</div>
-        </div>
+      <div>
+        <div class="stat-num">742</div>
+        <div class="stat-label">Puntaje promedio</div>
       </div>
-      <div class="sheet-row">
-        <span class="qnum">03</span>
-        <div class="bubbles">
-          <div class="bubble fill">A</div><div class="bubble">B</div><div class="bubble">C</div><div class="bubble">D</div><div class="bubble">E</div>
-        </div>
-      </div>
-      <div class="sheet-note"><span class="dot"></span> Corrección y retroalimentación en menos de 48 horas</div>
     </div>
   </div>
 </section>
@@ -469,64 +496,38 @@
 <section class="courses" id="cursos">
   <div class="wrap">
     <div class="sec-head">
-      <span class="eyebrow">Módulos</span>
-      <h2>Especialistas en Matemática y Ciencias PAES.</h2>
-      <p>Nos concentramos en los módulos M1, M2 y Ciencias, con material propio y ensayos alineados al DEMRE.</p>
+      <img class="r3d-section" src="/assets/r3d-cursos.png" alt="">
+      <span class="sec-tag">Módulos</span>
+      <h2>Elige tus módulos y estudia a tu ritmo.</h2>
+      <p>Cada módulo tiene contenido propio y ensayos alineados al DEMRE. La IA organiza tu avance según tus resultados — tú solo eliges cuándo estudiar.</p>
     </div>
     <div class="course-grid">
-      <div class="course-card accent-orange">
+      <div class="course-card">
         <div class="course-top">
           <span class="course-code">M1</span>
-          <span class="course-bubble">✓</span>
+          <span class="course-check">✓</span>
         </div>
         <h3>Competencia Matemática 1</h3>
-        <p>Álgebra, geometría y probabilidad — la base que rinden todas las carreras.</p>
-        <div class="course-meta">18 clases · 6 ensayos</div>
+        <p>Álgebra, geometría y probabilidad — la base que rinden todas las carreras. Avanza por los ejes a tu velocidad.</p>
+        <span class="course-meta">18 lecciones · 6 ensayos · online 24/7</span>
       </div>
-      <div class="course-card accent-orange">
+      <div class="course-card">
         <div class="course-top">
           <span class="course-code">M2</span>
-          <span class="course-bubble">✓</span>
+          <span class="course-check">✓</span>
         </div>
         <h3>Competencia Matemática 2</h3>
-        <p>Para carreras que exigen M2: funciones, cálculo inicial y modelamiento.</p>
-        <div class="course-meta">14 clases · 4 ensayos</div>
+        <p>Funciones, cálculo inicial y modelamiento. La IA refuerza los ejes donde más puntos pierdes.</p>
+        <span class="course-meta">14 lecciones · 4 ensayos · online 24/7</span>
       </div>
-      <div class="course-card accent-blue">
+      <div class="course-card">
         <div class="course-top">
           <span class="course-code">CIE</span>
-          <span class="course-bubble">✓</span>
+          <span class="course-check">✓</span>
         </div>
         <h3>Ciencias</h3>
-        <p>Biología, física o química según la mención que rindas.</p>
-        <div class="course-meta">16 clases · 5 ensayos</div>
-      </div>
-      <div class="course-card accent-neutral">
-        <div class="course-top">
-          <span class="course-code">EN</span>
-          <span class="course-bubble">✓</span>
-        </div>
-        <h3>Ensayos generales</h3>
-        <p>Simulacros cronometrados de jornada completa, condiciones reales de rendición.</p>
-        <div class="course-meta">8 simulacros · jornada completa</div>
-      </div>
-      <div class="course-card accent-neutral">
-        <div class="course-top">
-          <span class="course-code">TU</span>
-          <span class="course-bubble">✓</span>
-        </div>
-        <h3>Tutorías 1:1</h3>
-        <p>Refuerzo dirigido en los contenidos donde más se pierden puntos.</p>
-        <div class="course-meta">4 sesiones al mes · modalidad 1:1</div>
-      </div>
-      <div class="course-card accent-neutral">
-        <div class="course-top">
-          <span class="course-code">OR</span>
-          <span class="course-bubble">✓</span>
-        </div>
-        <h3>Orientación vocacional</h3>
-        <p>Postulación, ponderaciones y elección informada de carrera.</p>
-        <div class="course-meta">2 sesiones · perfil vocacional</div>
+        <p>Biología, física o química según tu mención. Estudia cuando puedas, la plataforma te espera.</p>
+        <span class="course-meta">16 lecciones · 5 ensayos · online 24/7</span>
       </div>
     </div>
   </div>
@@ -534,123 +535,141 @@
 
 <section class="resources" id="recursos">
   <div class="wrap">
+    <div class="resources-layout">
+      <div class="resources-text">
+        <img class="r3d-inline" src="/assets/r3d-recursos.png" alt="" style="margin-bottom:12px;display:block;">
+        <span class="sec-tag">Plataforma con IA</span>
+        <h2>Dentro de cada módulo hay 6 recursos.</h2>
+        <p>La plataforma usa inteligencia artificial para armar tu ruta de estudio. 3 formatos de contenido para que elijas cómo aprender y 3 niveles de evaluación que se adaptan a tu avance real.</p>
+        <div class="format-list">
+          <div class="format-item">
+            <div class="format-icon" style="background:transparent;box-shadow:none;"><img class="r3d-inline" src="/assets/icon-podcast.png" style="width:48px;"></div>
+            <div>
+              <h4>Podcast</h4>
+              <p>Repasa la materia escuchando en cualquier momento — camino al colegio, en la micro o antes de dormir. ~12 min.</p>
+            </div>
+          </div>
+          <div class="format-item">
+            <div class="format-icon" style="background:transparent;box-shadow:none;"><img class="r3d-inline" src="/assets/icon-infografia.png" style="width:48px;"></div>
+            <div>
+              <h4>Infografía</h4>
+              <p>El contenido resumido en una vista rápida, ideal para repasar antes de un ensayo.</p>
+            </div>
+          </div>
+          <div class="format-item">
+            <div class="format-icon" style="background:transparent;box-shadow:none;"><img class="r3d-inline" src="/assets/icon-video.png" style="width:48px;"></div>
+            <div>
+              <h4>Video</h4>
+              <p>La clase completa paso a paso, disponible 24/7 para que la veas cuando te acomode. ~8 min.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="eval-panel">
+        <h3>3 niveles de evaluación</h3>
+        <div class="eval-sub">40 problemas por eje y sub-eje</div>
+        <div class="eval-level">
+          <div class="eval-level-head">
+            <h4>Básico</h4>
+            <span class="eval-badge">40 problemas</span>
+          </div>
+          <p>Para afianzar los conceptos fundamentales de cada eje temático.</p>
+        </div>
+        <div class="eval-level">
+          <div class="eval-level-head">
+            <h4>Experto</h4>
+            <span class="eval-badge">40 problemas</span>
+          </div>
+          <p>Problemas de mayor complejidad, al nivel que exige la PAES real.</p>
+        </div>
+        <div class="eval-level level-top">
+          <div class="eval-level-head">
+            <h4>🏆 Nacional</h4>
+            <span class="eval-badge">40 problemas</span>
+          </div>
+          <p>El estándar de quienes buscan puntaje nacional. Máxima exigencia.</p>
+        </div>
+      </div>
+    </div>
+    <p class="eval-note"><b>La IA analiza cada respuesta por eje y sub-eje temático</b> — no es solo "correcto o incorrecto": sabrás exactamente en qué habilidad estás fallando y la plataforma ajustará tu plan de estudio automáticamente.</p>
+  </div>
+</section>
+
+<section class="demo-videos" id="demo">
+  <div class="wrap">
     <div class="sec-head">
-      <span class="eyebrow">Plataforma virtual</span>
-      <h2>Dentro de cada módulo hay 6 recursos.</h2>
-      <p>Al matricularte accedes a la plataforma virtual, donde cada módulo se despliega en 3 formatos de contenido y 3 niveles de evaluación — para que estudies como mejor aprendes y midas tu avance en serio.</p>
+      <span class="sec-tag">Video demostrativo</span>
+      <h2>Mira la plataforma en acción</h2>
+      <p>Tres vistazos reales a la experiencia dentro de la plataforma: así se ve estudiar con Academia Mirza Cortés.</p>
     </div>
-
-    <div class="resource-group">
-      <div class="resource-group-head">
-        <h3 class="resource-group-title">3 formatos, un mismo contenido</h3>
-        <span class="resource-group-tag">Elige cómo estudiar</span>
-      </div>
-      <div class="format-grid">
-        <div class="format-card format-podcast">
-          <div class="format-preview">
-            <div class="play-btn"></div>
-            <div class="waveform">
-              <span style="height:14px;"></span><span style="height:28px;"></span><span style="height:20px;"></span>
-              <span style="height:38px;"></span><span style="height:16px;"></span><span style="height:30px;"></span>
-              <span style="height:22px;"></span><span style="height:12px;"></span>
-            </div>
-          </div>
-          <div class="format-body">
-            <span class="format-kicker">Audio · ~12 min</span>
-            <h4>Podcast</h4>
-            <p>Repasa la materia escuchando, mientras te trasladas o entre pausas de estudio.</p>
+    <div class="demo-grid">
+      <div>
+        <div class="phone-frame">
+          <div class="phone-screen">
+            <video autoplay muted loop controls playsinline preload="auto" poster="/assets/demo-plataforma-poster.jpg" src="/assets/demo-plataforma.mp4"></video>
+            <button class="sound-toggle" aria-label="Activar sonido" type="button">🔇</button>
           </div>
         </div>
-        <div class="format-card format-infografia">
-          <div class="format-preview">
-            <div class="mini-chart">
-              <span style="height:26px;"></span><span style="height:44px;"></span><span style="height:34px;"></span><span style="height:56px;"></span>
-            </div>
-          </div>
-          <div class="format-body">
-            <span class="format-kicker">Resumen visual · 1 vista</span>
-            <h4>Infografía</h4>
-            <p>El contenido resumido en una vista rápida, ideal para repasar antes de un ensayo.</p>
-          </div>
-        </div>
-        <div class="format-card format-video">
-          <div class="format-preview">
-            <div class="video-frame"></div>
-            <div class="video-play"></div>
-          </div>
-          <div class="format-body">
-            <span class="format-kicker">Video · ~8 min</span>
-            <h4>Video</h4>
-            <p>La clase explicada paso a paso, para cuando necesitas ver el proceso completo.</p>
-          </div>
+        <div class="demo-caption">
+          <h4>Recorrido por la plataforma</h4>
+          <p>Navega los módulos y recursos disponibles.</p>
         </div>
       </div>
-    </div>
-
-    <div class="resource-group">
-      <div class="resource-group-head">
-        <h3 class="resource-group-title">3 niveles de evaluación</h3>
-        <span class="resource-group-tag">40 problemas cada uno</span>
-      </div>
-      <div class="level-grid">
-        <div class="level-card level-basico">
-          <div class="level-top">
-            <span class="level-num">01</span>
-            <div class="level-bars"><span style="height:6px;"></span><span style="height:10px;"></span><span style="height:8px;"></span></div>
+      <div>
+        <div class="phone-frame">
+          <div class="phone-screen">
+            <video autoplay muted loop controls playsinline preload="auto" poster="/assets/demo-evaluaciones-poster.jpg" src="/assets/demo-evaluaciones.mp4"></video>
+            <button class="sound-toggle" aria-label="Activar sonido" type="button">🔇</button>
           </div>
-          <h4>Básico</h4>
-          <p class="level-desc">Para afianzar los conceptos fundamentales de cada eje temático.</p>
-          <div class="level-meta">40 problemas · por eje y sub-eje</div>
         </div>
-        <div class="level-card level-experto">
-          <div class="level-top">
-            <span class="level-num">02</span>
-            <div class="level-bars"><span style="height:8px;"></span><span style="height:14px;"></span><span style="height:11px;"></span></div>
-          </div>
-          <h4>Experto</h4>
-          <p class="level-desc">Problemas de mayor complejidad, al nivel que exige la PAES real.</p>
-          <div class="level-meta">40 problemas · por eje y sub-eje</div>
-        </div>
-        <div class="level-card level-nacional">
-          <span class="level-trophy">🏆</span>
-          <div class="level-top">
-            <span class="level-num">03</span>
-            <div class="level-bars"><span style="height:10px;"></span><span style="height:18px;"></span><span style="height:14px;"></span></div>
-          </div>
-          <h4>Nacional</h4>
-          <p class="level-desc">El estándar de quienes buscan puntaje nacional. Máxima exigencia.</p>
-          <div class="level-meta">40 problemas · por eje y sub-eje</div>
+        <div class="demo-caption">
+          <h4>Evaluaciones con IA</h4>
+          <p>Así se corrigen y analizan tus respuestas.</p>
         </div>
       </div>
-      <p class="resource-note"><b>Cada quiz evalúa por eje y sub-eje temático</b> — no es solo "correcto o incorrecto": sabrás exactamente en qué habilidad específica estás fallando, no solo en qué módulo.</p>
+      <div>
+        <div class="phone-frame">
+          <div class="phone-screen">
+            <video autoplay muted loop controls playsinline preload="auto" poster="/assets/demo-clases-poster.jpg" src="/assets/demo-clases.mp4"></video>
+            <button class="sound-toggle" aria-label="Activar sonido" type="button">🔇</button>
+          </div>
+        </div>
+        <div class="demo-caption">
+          <h4>Clases y contenidos</h4>
+          <p>Ejemplo de una sesión completa dentro del curso.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<section id="testimonios">
+<section class="testimonios" id="testimonios">
   <div class="wrap">
     <div class="sec-head">
-      <span class="eyebrow">Resultados</span>
+      <span class="sec-tag">Resultados</span>
       <h2>Lo que dicen quienes ya rindieron.</h2>
     </div>
     <div class="testi-grid">
       <div class="testi-card">
-        <div class="testi-jump">
-          <span class="to-wrap"><span class="avatar" style="background:var(--orange)">JP</span><span class="to">1000 puntos</span></span>
+        <div class="testi-score">
+          <span class="testi-avatar" style="background:var(--orange)">JP</span>
+          <span class="testi-pts">1000 puntos</span>
         </div>
         <p class="testi-quote">"Lo que más me sirvió fueron los ensayos cronometrados: llegué a la prueba real sin sorpresas de tiempo."</p>
         <div class="testi-who"><b>Javiera P.</b> — Medicina, Pontificia Universidad Católica</div>
       </div>
       <div class="testi-card">
-        <div class="testi-jump">
-          <span class="to-wrap"><span class="avatar" style="background:var(--blue)">MR</span><span class="to">1000 puntos</span></span>
+        <div class="testi-score">
+          <span class="testi-avatar" style="background:var(--violet)">MR</span>
+          <span class="testi-pts">1000 puntos</span>
         </div>
         <p class="testi-quote">"En M1 sentía que nunca iba a mejorar. El seguimiento semanal me mostró exactamente dónde estaba perdiendo puntos."</p>
         <div class="testi-who"><b>Matías R.</b> — Medicina, Pontificia Universidad Católica</div>
       </div>
       <div class="testi-card">
-        <div class="testi-jump">
-          <span class="to-wrap"><span class="avatar" style="background:#8A4A1E">FO</span><span class="to">1000 puntos</span></span>
+        <div class="testi-score">
+          <span class="testi-avatar" style="background:#8A4A1E">FO</span>
+          <span class="testi-pts">1000 puntos</span>
         </div>
         <p class="testi-quote">"Las tutorías 1:1 en Ciencias fueron el punto de quiebre. Pasé de memorizar a entender realmente los procesos."</p>
         <div class="testi-who"><b>Fernanda O.</b> — Medicina, Pontificia Universidad Católica</div>
@@ -662,143 +681,118 @@
 <section class="plans" id="planes">
   <div class="wrap">
     <div class="sec-head">
-      <span class="eyebrow">Planes</span>
-      <h2>Precio simple: por curso, sin letra chica.</h2>
-      <p>Cada módulo cuesta lo mismo — arma tu plan según cuántos cursos necesites. Incluye material propio, corrección de ensayos y acceso a la plataforma de seguimiento de puntaje.</p>
+      <img class="r3d-section" src="/assets/r3d-planes.png" alt="">
+      <span class="sec-tag">Planes</span>
+      <h2>Precio simple: por módulo, sin letra chica.</h2>
+      <p>Cada módulo cuesta lo mismo — arma tu plan según lo que necesites. Incluye acceso completo a la plataforma con IA, material propio y corrección automática de ensayos.</p>
     </div>
     <div class="plan-grid">
       <div class="plan-card">
         <h3>1 curso</h3>
         <p class="plan-desc">Para quienes necesitan reforzar un solo módulo.</p>
-        <div class="plan-price">$8.000<span> / mes</span></div>
+        <div class="plan-price">$8.000<span>/ mes</span></div>
         <ul class="plan-list">
           <li>1 módulo a elección (M1, M2 o Ciencias)</li>
-          <li>1 ensayo mensual corregido</li>
-          <li>Material digital incluido</li>
-          <li>Grupo de dudas por WhatsApp</li>
+          <li>Ruta de estudio personalizada por IA</li>
+          <li>1 ensayo mensual con corrección automática</li>
+          <li>Acceso 24/7 a la plataforma</li>
         </ul>
-        <a href="#contacto" class="btn btn-primary">Elegir 1 curso</a>
+        <a href="#contacto" class="plan-btn">Elegir 1 módulo</a>
       </div>
       <div class="plan-card featured">
         <span class="plan-tag">Más elegido</span>
         <h3>2 cursos</h3>
         <p class="plan-desc">Matemática + Ciencias, la combinación más pedida.</p>
-        <div class="plan-price">$16.000<span> / mes</span></div>
+        <div class="plan-price">$16.000<span>/ mes</span></div>
         <ul class="plan-list">
           <li>2 módulos a elección</li>
-          <li>Ensayo quincenal cronometrado</li>
-          <li>Seguimiento personalizado de puntaje</li>
-          <li>Grupo de dudas por WhatsApp</li>
+          <li>IA adapta tu plan según resultados</li>
+          <li>Ensayo quincenal con análisis automático</li>
+          <li>Dashboard de progreso en tiempo real</li>
         </ul>
-        <a href="#contacto" class="btn btn-primary">Elegir 2 cursos</a>
+        <a href="#contacto" class="plan-btn">Elegir 2 módulos</a>
       </div>
       <div class="plan-card">
         <h3>3 cursos</h3>
         <p class="plan-desc">M1, M2 y Ciencias — preparación completa.</p>
-        <div class="plan-price">$24.000<span> / mes</span></div>
+        <div class="plan-price">$24.000<span>/ mes</span></div>
         <ul class="plan-list">
           <li>Los 3 módulos completos</li>
-          <li>Ensayo semanal cronometrado</li>
-          <li>Seguimiento personalizado de puntaje</li>
-          <li>1 tutoría 1:1 mensual incluida</li>
+          <li>Ensayo semanal con análisis por IA</li>
+          <li>Ruta 100% personalizada y adaptativa</li>
+          <li>1 tutoría 1:1 mensual con profesor</li>
         </ul>
-        <a href="#contacto" class="btn btn-primary">Elegir 3 cursos</a>
+        <a href="#contacto" class="plan-btn">Elegir 3 módulos</a>
       </div>
     </div>
-    <p class="plans-note">10% de descuento pagando al contado · Aceptamos tarjetas bancarias de débito y crédito.</p>
+    <div class="plans-note-wrap">
+      <div class="plans-note">10% de descuento pagando al contado · Aceptamos tarjetas de débito y crédito</div>
+    </div>
   </div>
 </section>
 
-<section id="contacto">
-  <div class="wrap contact-grid">
-    <div class="contact-info">
-      <span class="eyebrow">Contacto</span>
-      <h3 style="margin-top:14px;">Agenda tu clase diagnóstico gratuita.</h3>
-      <p>Completa el formulario y te contactamos dentro de 24 horas hábiles para coordinar tu evaluación diagnóstica sin costo.</p>
-      <div class="info-row"><span class="k">Correo</span><span class="v">contacto@mirzacortes.cl</span></div>
-      <div class="info-row"><span class="k">Teléfono</span><span class="v">+56 9 0000 0000</span></div>
-      <div class="info-row"><span class="k">Ubicación</span><span class="v">Chile · clases presenciales y online</span></div>
-      <a href="https://wa.me/56900000000" target="_blank" class="btn btn-primary wa-btn">Escríbenos por WhatsApp</a>
+<section class="contacto" id="contacto">
+  <div class="wrap">
+    <div class="contact-card">
+      <img class="r3d-contact" src="/assets/r3d-contacto.png" alt="" style="margin:0 0 16px;">
+      <span class="sec-tag">Contacto</span>
+      <h3>Prueba la plataforma gratis.</h3>
+      <p>Contáctanos para acceder a tu diagnóstico inicial con IA sin costo. Mide tu nivel real y recibe tu primera ruta de estudio personalizada.</p>
+      <div class="info-item">
+        <div class="info-icon">✉</div>
+        <div>
+          <div class="info-k">Correo</div>
+          <div class="info-v">contacto@mirzacortes.cl</div>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">📱</div>
+        <div>
+          <div class="info-k">Teléfono</div>
+          <div class="info-v">+56 9 0000 0000</div>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">📍</div>
+        <div>
+          <div class="info-k">Modalidad</div>
+          <div class="info-v">100% online · estudia desde cualquier lugar de Chile</div>
+        </div>
+      </div>
+      <div class="wa-btn-wrap">
+        <a href="https://wa.me/56900000000" target="_blank" class="wa-btn">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+          Escríbenos por WhatsApp
+        </a>
+      </div>
     </div>
-
-    <form id="contactForm">
-      <div class="form-row">
-        <div class="field">
-          <label for="nombre">Nombre completo</label>
-          <input type="text" id="nombre" required placeholder="Tu nombre">
-        </div>
-        <div class="field">
-          <label for="telefono">Teléfono</label>
-          <input type="tel" id="telefono" required placeholder="+56 9 ....">
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="field full">
-          <label for="email">Correo electrónico</label>
-          <input type="email" id="email" required placeholder="tucorreo@mail.com">
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="field full">
-          <label for="curso">Módulo de interés</label>
-          <select id="curso">
-            <option>Competencia Matemática 1 (M1)</option>
-            <option>Competencia Matemática 2 (M2)</option>
-            <option>Ciencias (CIE)</option>
-            <option>No estoy seguro — quiero orientación</option>
-          </select>
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="field full">
-          <label for="mensaje">Mensaje (opcional)</label>
-          <textarea id="mensaje" placeholder="Cuéntanos tu puntaje objetivo o dudas puntuales"></textarea>
-        </div>
-      </div>
-      <button type="submit" class="btn btn-primary form-submit">Solicitar entrevista</button>
-      <p class="form-msg" id="formMsg">✓ Solicitud enviada. Te contactaremos dentro de 24 horas hábiles.</p>
-    </form>
   </div>
 </section>
 
 <footer>
   <div class="wrap foot-wrap">
     <div class="brand">
-      <img class="brand-mark sm" src="/logo-mark.png" width="28" height="28" alt="">
-      <div class="brand-name" style="font-size:15px;">Mirza Cortés</div>
+      <div class="brand-mark" style="width:28px;height:28px;border-color:rgba(255,255,255,.5);"></div>
+      <div class="brand-name" style="font-size:15px;">Mirza Cortés<span>Preuniversitario PAES</span></div>
     </div>
     <p>© 2026 Academia Mirza Cortés · Preuniversitario PAES, Chile</p>
   </div>
 </footer>
 
 <script>
-  // menu mobile stub
   document.querySelector('.menu-btn').addEventListener('click', () => {
     const links = document.querySelector('.nav-links');
-    links.style.display = links.style.display === 'flex' ? 'none' : 'flex';
-    links.style.cssText += 'flex-direction:column; position:absolute; top:64px; left:0; right:0; background:#3A2380; padding:20px 28px; border-bottom:1px solid rgba(255,255,255,.14);';
+    const open = links.style.display !== 'flex';
+    // El menu se ancla al alto real del header (logo 52px + padding + borde);
+    // fijarlo a mano lo hacia abrir por encima del propio header.
+    const top = document.querySelector('header').getBoundingClientRect().height;
+    links.style.cssText = open
+      ? 'display:flex; flex-direction:column; position:absolute; top:' + top +
+        'px; left:0; right:0; background:#fff; padding:20px 28px;' +
+        ' border-bottom:3px solid var(--orange); box-shadow:0 8px 24px rgba(0,0,0,.1);'
+      : 'display:none;';
   });
 
-  // form submit (front-end only — connect to backend / Google Forms / email service for production)
-  document.getElementById('contactForm').addEventListener('submit', function(e){
-    e.preventDefault();
-    document.getElementById('formMsg').classList.add('show');
-    this.reset();
-  });
-
-  // re-trigger bubble pop animation periodically for subtle life in the hero
-  const bubbleRows = document.querySelectorAll('.bubbles');
-  setInterval(() => {
-    bubbleRows.forEach(row => {
-      const filled = row.querySelector('.fill');
-      if(filled){
-        filled.style.animation = 'none';
-        void filled.offsetWidth;
-        filled.style.animation = 'pop .5s ease';
-      }
-    });
-  }, 4000);
-  // sonido suave de clic para todos los botones
   let audioCtx;
   function playClickSound(){
     try{
@@ -818,7 +812,16 @@
       osc.stop(t + 0.11);
     }catch(e){}
   }
-  document.querySelectorAll('.btn').forEach(btn => btn.addEventListener('click', playClickSound));
+  document.querySelectorAll('.btn, .plan-btn, .wa-btn').forEach(btn => btn.addEventListener('click', playClickSound));
+
+  document.querySelectorAll('.sound-toggle').forEach(btn => {
+    const video = btn.previousElementSibling;
+    btn.addEventListener('click', () => {
+      video.muted = !video.muted;
+      if(!video.muted){ video.play().catch(()=>{}); }
+      btn.textContent = video.muted ? '🔇' : '🔊';
+    });
+  });
 </script>
 
 </body>
