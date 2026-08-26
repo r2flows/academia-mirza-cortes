@@ -26,6 +26,23 @@ docker run --rm -p 8080:8080 -e PORT=8080 amc
 # http://localhost:8080
 ```
 
+## Entregas de diseño
+
+El diseño llega como un HTML único con imágenes y videos embebidos en base64
+(~12 MB). Ese archivo no se versiona: su contenido se extrae a `public/assets/`
+y el HTML queda en `public/index.html` pesando ~39 KB.
+
+Tras importar una entrega nueva hay que rebajar las imágenes, que vienen a
+resolución de exportación (una venía a 938×938 px para mostrarse a 48 px):
+
+```bash
+python3 tools/optimize_design_assets.py
+```
+
+Al reimportar hay que volver a poner en el `<head>` el favicon, el
+`apple-touch-icon`, `theme-color`, `meta description`, `canonical` y las
+etiquetas Open Graph: el archivo de diseño no los trae.
+
 ## Assets de marca
 
 `brand/logo_mirza.jpeg` es el original: un tile blanco de 765×765 con esquinas
@@ -52,12 +69,11 @@ railway up
 
 ## Pendientes
 
-- [ ] **El formulario de contacto no envía nada.** `#contactForm` hace
-      `preventDefault()`, muestra "✓ Solicitud enviada" y limpia el formulario,
-      pero nunca contacta un backend: cada lead se pierde en silencio mientras
-      el visitante cree que su solicitud llegó. Es lo más urgente.
+- [ ] **Los tres videos demo pesan 6,2 MB y son `autoplay` + `preload="auto"`**,
+      así que el navegador los descarga completos al cargar la página. Para
+      alumnos con datos móviles es mucho. Conviene recomprimirlos y cargarlos
+      sólo cuando entran en pantalla (IntersectionObserver).
 - [ ] Reemplazar los placeholders de contacto: `+56 9 0000 0000`,
       `wa.me/56900000000`, `contacto@mirzacortes.cl`.
-- [ ] Revisar los tres testimonios, hoy idénticos ("1000 puntos", Medicina PUC).
 - [ ] Dominio propio en vez del `*.up.railway.app`. Al cambiarlo hay que
       actualizar `og:url`, `og:image` y `canonical` en `public/index.html`.
