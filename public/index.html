@@ -8,14 +8,14 @@
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta name="theme-color" content="#FFFFFF">
-<link rel="canonical" href="https://academia-mirza-cortes-production.up.railway.app/">
+<link rel="canonical" href="https://academiamirzacortes.cl/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_CL">
 <meta property="og:site_name" content="Academia Mirza Cortés">
-<meta property="og:url" content="https://academia-mirza-cortes-production.up.railway.app/">
+<meta property="og:url" content="https://academiamirzacortes.cl/">
 <meta property="og:title" content="Academia Mirza Cortés — Preuniversitario PAES">
 <meta property="og:description" content="Preuniversitario PAES 100% online, especialista en Matemática y Ciencias. Diagnóstico con IA y seguimiento personalizado de tu puntaje.">
-<meta property="og:image" content="https://academia-mirza-cortes-production.up.railway.app/og-image.jpg">
+<meta property="og:image" content="https://academiamirzacortes.cl/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Logo de Academia Mirza Cortés">
@@ -61,13 +61,18 @@
     display:flex; align-items:center; justify-content:space-between; gap:14px;
     padding:14px 0;
   }
-  .brand{display:flex; align-items:center; gap:12px;}
+  .brand{display:flex; align-items:center; gap:12px; flex-shrink:0; margin-right:12px;}
+  .brand-name{white-space:nowrap;}
   .brand-mark{
     height:52px; width:auto; flex-shrink:0; display:block;
+    border-radius:14px; overflow:hidden; background:#fff;
+    box-shadow:0 2px 10px rgba(76,29,149,.15), 0 0 0 1px rgba(109,40,217,.08);
   }
   .brand-name{font-family:'Fraunces',serif; font-weight:800; font-size:18px; line-height:1.1; color:var(--violet-dark);}
   .brand-name span{display:block; font-family:'JetBrains Mono',monospace; font-weight:700; font-size:10px; letter-spacing:.14em; color:var(--orange); text-transform:uppercase; margin-top:2px;}
-  .nav-links{display:flex; gap:32px; align-items:center;}
+  .nav-links{display:flex; gap:clamp(14px,1.6vw,24px); align-items:center;}
+  .nav-links a{white-space:nowrap;}
+  .nav-cta .nav-link-text, .nav-cta .btn{white-space:nowrap;}
   .nav-links a{font-size:14.5px; font-weight:700; color:var(--violet-dark); transition:color .15s;}
   .nav-links a:hover{color:var(--orange);}
   .btn{
@@ -348,6 +353,67 @@
     border:1px solid rgba(255,255,255,.08);
   }
   .plans-note-wrap{text-align:center;}
+  .info-v a{color:inherit; overflow-wrap:anywhere;}
+  .info-v a:hover{color:var(--orange);}
+
+  /* ---------- OFERTA DE LANZAMIENTO ---------- */
+  .launch{
+    position:relative; overflow:hidden; max-width:880px; margin:0 auto 56px;
+    display:flex; align-items:center; gap:24px; justify-content:space-between;
+    padding:22px 28px; border-radius:24px;
+    background:linear-gradient(90deg, rgba(255,107,0,.18), rgba(212,175,55,.14));
+    border:1.5px solid rgba(255,107,0,.55);
+    box-shadow:0 0 40px rgba(255,107,0,.18);
+  }
+  .launch::after{
+    content:''; position:absolute; top:0; left:-60%; width:40%; height:100%;
+    background:linear-gradient(90deg, transparent, rgba(255,255,255,.12), transparent);
+    transform:skewX(-20deg); animation:launchShine 4.5s ease-in-out infinite; pointer-events:none;
+  }
+  @keyframes launchShine{0%,60%{left:-60%;}100%{left:130%;}}
+  .launch-left{display:flex; align-items:center; gap:16px; position:relative; z-index:1;}
+  .launch-icon{
+    width:52px; height:52px; border-radius:16px; flex-shrink:0;
+    background:var(--orange); display:flex; align-items:center; justify-content:center; font-size:26px;
+    box-shadow:0 8px 20px rgba(255,107,0,.4);
+  }
+  .launch-kicker{font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--gold);}
+  .launch-title{font-family:'Fraunces',serif; font-size:clamp(20px,2.4vw,26px); font-weight:800; color:#fff; line-height:1.15; margin-top:2px;}
+  .launch-title b{color:var(--orange);}
+  .launch-sub{font-size:13.5px; color:rgba(255,255,255,.7); font-weight:500; margin-top:4px;}
+  .launch-cupos{
+    position:relative; z-index:1; flex-shrink:0; text-align:center;
+    background:rgba(0,0,0,.25); border:1px solid rgba(255,255,255,.12);
+    border-radius:16px; padding:12px 20px;
+  }
+  .launch-cupos strong{display:block; font-family:'Inter',sans-serif; font-size:30px; font-weight:900; color:#fff; line-height:1;}
+  .launch-cupos span{font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.65);}
+  .plan-old{
+    font-family:'Inter',sans-serif; font-size:15px; font-weight:700;
+    text-decoration:line-through; text-decoration-thickness:2px; margin-bottom:2px;
+  }
+  .plan-card .plan-old{color:var(--slate); opacity:.75;}
+  .plan-card.featured .plan-old{color:rgba(255,255,255,.5);}
+  .plan-save{
+    display:inline-block; margin:14px 0 0; font-family:'JetBrains Mono',monospace;
+    font-size:10.5px; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
+    color:#15803D; background:rgba(34,197,94,.12); padding:5px 12px; border-radius:999px;
+  }
+  .plan-card.featured .plan-save{color:#86EFAC; background:rgba(34,197,94,.15);}
+  .plan-card .plan-price.has-save{padding-bottom:0; border-bottom:none;}
+  .plan-savebox{padding-bottom:24px; border-bottom:1px solid var(--line);}
+  .plan-card.featured .plan-savebox{border-color:rgba(255,255,255,.12);}
+  .hero-launch{
+    display:inline-flex; align-items:center; gap:8px; margin:0 auto 20px;
+    background:var(--orange); color:#fff; font-size:13px; font-weight:800;
+    padding:8px 18px; border-radius:999px; box-shadow:0 0 24px rgba(255,107,0,.45);
+  }
+  .hero-launch:hover{background:var(--orange-dark);}
+  @media(max-width:700px){
+    .launch{flex-direction:column; align-items:stretch; text-align:left; padding:20px;}
+    .launch-cupos{display:flex; align-items:baseline; justify-content:center; gap:10px;}
+    .launch-cupos strong{display:inline; font-size:24px;}
+  }
 
   /* ---------- CONTACTO ---------- */
   .contacto{background:var(--bg);}
@@ -420,17 +486,121 @@
     0%,100%{transform:translateY(0) rotate(0deg);}
     50%{transform:translateY(-5px) rotate(-3deg);}
   }
+  @media(max-width:360px){
+    .brand-name{display:none;}
+  }
   @media(prefers-reduced-motion: reduce){
     .r3d-section, .r3d-inline, .r3d-contact{animation:none;}
   }
 
+  /* ---------- AULA VIRTUAL ---------- */
+  .btn-aula{
+    padding:10px 20px; border-radius:999px; background:var(--violet-dark); color:#fff;
+    box-shadow:0 0 0 2px rgba(109,40,217,.15);
+  }
+  .btn-aula:hover{background:var(--violet);}
+  .btn-aula .dot{width:8px; height:8px; border-radius:50%; background:#22C55E; box-shadow:0 0 0 3px rgba(34,197,94,.25); animation:aulaPulse 2s infinite;}
+  @keyframes aulaPulse{0%,100%{box-shadow:0 0 0 3px rgba(34,197,94,.25);}50%{box-shadow:0 0 0 6px rgba(34,197,94,.08);}}
+  .nav-links a.nav-aula{display:none;}
+  .hero-student{margin:-32px 0 48px; font-size:15px; color:rgba(255,255,255,.75); font-weight:500;}
+  .hero-student a{color:var(--gold); font-weight:800; border-bottom:1.5px solid rgba(212,175,55,.5); padding-bottom:1px; transition:color .15s;}
+  .hero-student a:hover{color:#fff;}
+
+  .aula{padding:0; background:var(--bg); position:relative;}
+  .aula .wrap{position:relative; z-index:3; transform:translateY(-56px); margin-bottom:-56px;}
+  .aula-card{
+    position:relative; overflow:hidden; border-radius:32px;
+    background:linear-gradient(120deg, #1B0B45 0%, var(--violet-dark) 55%, #5B21B6 100%);
+    padding:48px 52px; display:grid; grid-template-columns:1.25fr 1fr; gap:40px; align-items:center;
+    box-shadow:0 30px 70px rgba(27,11,69,.35); border:1px solid rgba(255,255,255,.08);
+  }
+  .aula-card::before{
+    content:''; position:absolute; inset:0;
+    background-image:radial-gradient(rgba(255,255,255,.08) 1px, transparent 1px);
+    background-size:22px 22px; mask-image:linear-gradient(90deg, transparent, #000 70%);
+    -webkit-mask-image:linear-gradient(90deg, transparent, #000 70%); pointer-events:none;
+  }
+  .aula-card::after{
+    content:''; position:absolute; width:360px; height:360px; border-radius:50%;
+    background:var(--orange); filter:blur(120px); opacity:.22; right:-80px; bottom:-160px; pointer-events:none;
+  }
+  .aula-text, .aula-access{position:relative; z-index:2;}
+  .aula-live{
+    display:inline-flex; align-items:center; gap:8px; margin-bottom:16px;
+    font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; letter-spacing:.12em; text-transform:uppercase;
+    color:#86EFAC; background:rgba(34,197,94,.12); border:1px solid rgba(34,197,94,.3);
+    padding:6px 14px; border-radius:999px;
+  }
+  .aula-live .dot{width:8px; height:8px; border-radius:50%; background:#22C55E; animation:aulaPulse 2s infinite;}
+  .aula-text h2{color:#fff; font-size:clamp(28px,3.4vw,42px); line-height:1.08; margin-bottom:14px;}
+  .aula-text h2 em{font-style:italic; background:linear-gradient(90deg, var(--orange), var(--gold)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;}
+  .aula-text p{color:rgba(255,255,255,.72); font-size:16px; line-height:1.7; font-weight:500; max-width:46ch;}
+  .aula-feats{display:flex; flex-wrap:wrap; gap:10px; margin-top:22px; list-style:none;}
+  .aula-feats li{font-size:13px; font-weight:700; color:#fff; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.12); padding:7px 14px; border-radius:999px;}
+  .aula-access{
+    background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.14);
+    backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+    border-radius:24px; padding:28px; text-align:center;
+  }
+  .aula-url{
+    display:flex; align-items:center; gap:8px; justify-content:center;
+    font-family:'JetBrains Mono',monospace; font-size:12px; color:rgba(255,255,255,.6);
+    background:rgba(0,0,0,.25); border-radius:12px; padding:10px 14px; margin-bottom:20px;
+    overflow:hidden; white-space:nowrap; text-overflow:ellipsis;
+  }
+  .aula-url svg{flex-shrink:0;}
+  .btn-aula-big{
+    width:100%; padding:18px 28px; border-radius:18px; font-size:17px; font-weight:800;
+    color:#fff; background:linear-gradient(90deg, var(--orange), #FF8A1F);
+    box-shadow:0 12px 30px rgba(255,107,0,.4), inset 0 1px 0 rgba(255,255,255,.25);
+  }
+  .btn-aula-big:hover{box-shadow:0 18px 40px rgba(255,107,0,.55), inset 0 1px 0 rgba(255,255,255,.25);}
+  .btn-aula-big .arrow{transition:transform .2s;}
+  .btn-aula-big:hover .arrow{transform:translateX(4px);}
+  .aula-help{margin-top:16px; font-size:13px; color:rgba(255,255,255,.6); font-weight:500;}
+  .aula-help a{color:var(--gold); font-weight:700;}
+  .aula + .courses{padding-top:100px;}
+
+  /* Asesoría directa queda en Contacto y en el aula; el header no da para todo */
+  .nav-cta .nav-link-text{display:none;}
+  @media(max-width:1180px){
+    .nav-cta .btn-aula{display:none;}
+    .nav-links.open a.nav-aula{
+      display:flex; align-items:center; gap:10px; margin-top:10px; justify-content:center;
+      background:var(--violet-dark); color:#fff; border-radius:14px; border-bottom:none;
+    }
+  }
+  @media(max-width:920px){
+    .aula-card{grid-template-columns:1fr; padding:36px 28px; gap:28px;}
+  }
+  @media(max-width:500px){
+    .aula .wrap{transform:translateY(-40px); margin-bottom:-40px;}
+    .aula-card{padding:28px 20px; border-radius:24px;}
+    .aula-access{padding:20px;}
+    .hero-student{margin:-24px 0 40px; font-size:14px;}
+  }
+
   /* ---------- RESPONSIVE ---------- */
+  /* Menú: se colapsa antes de que los enlaces choquen con el logo */
+  @media(max-width:1180px){
+    header .wrap{position:relative;}
+    .nav-links, .nav-cta .nav-link-text{display:none;}
+    .menu-btn{display:flex; align-items:center; justify-content:center; flex-shrink:0; width:44px; height:44px; border-radius:12px;}
+    .menu-btn:hover{background:var(--bg);}
+    .nav-cta{flex-shrink:0; margin-left:auto;}
+    .nav-links.open{
+      display:flex; flex-direction:column; align-items:stretch; gap:0;
+      position:absolute; top:100%; left:0; right:0; margin-top:3px;
+      background:#fff; padding:8px 28px 16px;
+      border-bottom:3px solid var(--orange); box-shadow:0 12px 24px rgba(0,0,0,.12);
+      max-height:calc(100vh - 90px); overflow-y:auto;
+    }
+    .nav-links.open a{padding:14px 4px; font-size:16px; border-bottom:1px solid var(--line);}
+    .nav-links.open a:last-child{border-bottom:none;}
+  }
   @media(max-width:920px){
     .hero{padding:140px 0 72px;}
     .hero-stats{grid-template-columns:repeat(3,1fr); gap:16px;}
-    .nav-links, .nav-cta .nav-link-text{display:none;}
-    .menu-btn{display:block; flex-shrink:0;}
-    .nav-cta{flex-shrink:0;}
     .nav-cta .btn-pill{padding:9px 18px; font-size:12.5px;}
     .brand-name{font-size:15.5px;}
     .brand-name span{display:none;}
@@ -443,6 +613,13 @@
     .contact-card{padding:32px 24px;}
   }
   @media(max-width:500px){
+    .wrap{padding:0 16px;}
+    nav{gap:8px; padding:10px 0;}
+    .brand{gap:8px; margin-right:0;}
+    .brand-mark{height:40px; border-radius:11px;}
+    .brand-name{font-size:14px;}
+    .nav-cta .btn-pill{padding:8px 14px; font-size:12px;}
+    .nav-links.open{padding:8px 16px 16px;}
     .wa-float{right:16px; bottom:16px; width:54px; height:54px;}
     .wa-float svg{width:28px; height:28px;}
     .course-grid{grid-template-columns:1fr;}
@@ -468,9 +645,11 @@
         <a href="#testimonios">Resultados</a>
         <a href="#planes">Planes</a>
         <a href="#contacto">Contacto</a>
+        <a href="https://virtual.iaula.cl/course/index.php?categoryid=14" target="_blank" rel="noopener" class="nav-aula"><span>🎓</span> Ingresar al Aula Virtual</a>
       </div>
       <div class="nav-cta">
         <a href="https://wa.me/56951780667?text=Hola%2C%20quiero%20asesor%C3%ADa%20para%20prepararme%20para%20la%20PAES" target="_blank" rel="noopener" class="nav-link-text">Asesoría directa</a>
+        <a href="https://virtual.iaula.cl/course/index.php?categoryid=14" target="_blank" rel="noopener" class="btn btn-aula"><span class="dot"></span>Aula Virtual</a>
         <a href="#planes" class="btn btn-pill btn-primary">Matricúlate</a>
       </div>
       <button class="menu-btn" aria-label="Abrir menú">☰</button>
@@ -480,6 +659,7 @@
 
 <section class="hero">
     <div class="wrap">
+    <a href="#planes" class="hero-launch">🚀 Lanzamiento: $4.990 por curso · primeras 100 matrículas →</a><br>
     <div class="hero-badge">
       Preuniversitario con inteligencia artificial <span class="accent">· 137 Puntajes Nacionales</span>
     </div>
@@ -489,6 +669,7 @@
       <a href="#contacto" class="btn btn-pill btn-primary" style="padding:16px 40px; font-size:17px;">Empieza gratis hoy</a>
       <a href="#cursos" class="btn btn-pill btn-outline-white" style="padding:16px 40px; font-size:17px;">Cómo funciona</a>
     </div>
+    <p class="hero-student">¿Ya eres alumno? <a href="#aula">Entra a tu aula virtual →</a></p>
     <div class="hero-stats">
       <div>
         <div class="stat-num">+850</div>
@@ -501,6 +682,28 @@
       <div>
         <div class="stat-num">742</div>
         <div class="stat-label">Puntaje promedio</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="aula" id="aula">
+  <div class="wrap">
+    <div class="aula-card">
+      <div class="aula-text">
+        <span class="aula-live"><span class="dot"></span>Plataforma activa 24/7</span>
+        <h2>Tu <em>Aula Virtual</em>,<br>donde ocurre todo.</h2>
+        <p>Entra a tus clases, revisa el material, rinde tus ensayos y sigue tu avance en un solo lugar. Ingresa con el usuario y la contraseña que te entregamos al matricularte.</p>
+        <ul class="aula-feats">
+          <li>📚 Clases y material</li>
+          <li>⏱️ Ensayos PAES</li>
+          <li>📈 Tu progreso</li>
+        </ul>
+      </div>
+      <div class="aula-access">
+        <div class="aula-url"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>virtual.iaula.cl</div>
+        <a href="https://virtual.iaula.cl/course/index.php?categoryid=14" target="_blank" rel="noopener" class="btn btn-aula-big">Ingresar a mis clases <span class="arrow">→</span></a>
+        <p class="aula-help">¿Problemas para entrar? <a href="https://wa.me/56951780667?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Academia%20Mirza%20Cort%C3%A9s" target="_blank" rel="noopener">Escríbenos</a></p>
       </div>
     </div>
   </div>
@@ -697,13 +900,24 @@
       <img class="r3d-section" src="/assets/r3d-planes.png" alt="">
       <span class="sec-tag">Planes</span>
       <h2>Precio simple: por módulo, sin letra chica.</h2>
-      <p>Cada módulo cuesta lo mismo — arma tu plan según lo que necesites. Incluye acceso completo a la plataforma con IA, material propio y corrección automática de ensayos.</p>
+      <p>Por el lanzamiento, cada módulo cuesta solo $4.990 para las primeras 100 matrículas — arma tu plan según lo que necesites. Incluye acceso completo a la plataforma con IA, material propio y corrección automática de ensayos.</p>
+    </div>
+<div class="launch">
+      <div class="launch-left">
+        <div class="launch-icon">🚀</div>
+        <div>
+          <div class="launch-kicker">Oferta de lanzamiento</div>
+          <div class="launch-title"><b>$4.990</b> por curso, en todos los ramos</div>
+          <div class="launch-sub">M1, M2 y Ciencias al mismo precio. Válido solo para las primeras matrículas.</div>
+        </div>
+      </div>
+      <div class="launch-cupos"><strong>100</strong><span>primeras matrículas</span></div>
     </div>
     <div class="plan-grid">
       <div class="plan-card">
         <h3>1 curso</h3>
         <p class="plan-desc">Para quienes necesitan reforzar un solo módulo.</p>
-        <div class="plan-price">$8.000<span>/ mes</span></div>
+        <div class="plan-savebox"><div class="plan-old">$8.000 / mes</div><div class="plan-price has-save">$4.990<span>/ mes</span></div><span class="plan-save">Ahorras $3.010 al mes</span></div>
         <ul class="plan-list">
           <li>1 módulo a elección (M1, M2 o Ciencias)</li>
           <li>Ruta de estudio personalizada por IA</li>
@@ -716,7 +930,7 @@
         <span class="plan-tag">Más elegido</span>
         <h3>2 cursos</h3>
         <p class="plan-desc">Matemática + Ciencias, la combinación más pedida.</p>
-        <div class="plan-price">$16.000<span>/ mes</span></div>
+        <div class="plan-savebox"><div class="plan-old">$16.000 / mes</div><div class="plan-price has-save">$9.980<span>/ mes</span></div><span class="plan-save">Ahorras $6.020 al mes</span></div>
         <ul class="plan-list">
           <li>2 módulos a elección</li>
           <li>IA adapta tu plan según resultados</li>
@@ -728,7 +942,7 @@
       <div class="plan-card">
         <h3>3 cursos</h3>
         <p class="plan-desc">M1, M2 y Ciencias — preparación completa.</p>
-        <div class="plan-price">$24.000<span>/ mes</span></div>
+        <div class="plan-savebox"><div class="plan-old">$24.000 / mes</div><div class="plan-price has-save">$14.970<span>/ mes</span></div><span class="plan-save">Ahorras $9.030 al mes</span></div>
         <ul class="plan-list">
           <li>Los 3 módulos completos</li>
           <li>Ensayo semanal con análisis por IA</li>
@@ -755,7 +969,7 @@
         <div class="info-icon">✉</div>
         <div>
           <div class="info-k">Correo</div>
-          <div class="info-v">contacto@mirzacortes.cl</div>
+          <div class="info-v"><a href="mailto:contacto@academiamirzacortes.cl">contacto@academiamirzacortes.cl</a></div>
         </div>
       </div>
       <div class="info-item">
@@ -797,18 +1011,19 @@
 </footer>
 
 <script>
-  document.querySelector('.menu-btn').addEventListener('click', () => {
+  (function(){
+    const btn = document.querySelector('.menu-btn');
     const links = document.querySelector('.nav-links');
-    const open = links.style.display !== 'flex';
-    // El menu se ancla al alto real del header (logo 52px + padding + borde);
-    // fijarlo a mano lo hacia abrir por encima del propio header.
-    const top = document.querySelector('header').getBoundingClientRect().height;
-    links.style.cssText = open
-      ? 'display:flex; flex-direction:column; position:absolute; top:' + top +
-        'px; left:0; right:0; background:#fff; padding:20px 28px;' +
-        ' border-bottom:3px solid var(--orange); box-shadow:0 8px 24px rgba(0,0,0,.1);'
-      : 'display:none;';
-  });
+    btn.setAttribute('aria-expanded','false');
+    function setOpen(o){
+      links.classList.toggle('open', o);
+      btn.setAttribute('aria-expanded', o ? 'true' : 'false');
+      btn.textContent = o ? '✕' : '☰';
+    }
+    btn.addEventListener('click', () => setOpen(!links.classList.contains('open')));
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setOpen(false)));
+    window.addEventListener('resize', () => { if(window.innerWidth > 1180) setOpen(false); });
+  })();
 
   let audioCtx;
   function playClickSound(){
