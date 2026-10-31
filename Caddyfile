@@ -18,6 +18,9 @@
 	handle /m/* {
 		reverse_proxy {$CHATTERBOX_URL} {
 			header_up Host {upstream_hostport}
+			# El borde de Railway pisa X-Forwarded-Host: el dominio de la landing
+			# viaja aparte para que AgentLoop sepa de qué cliente es el link.
+			header_up X-Landing-Host {host}
 		}
 	}
 
