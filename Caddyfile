@@ -7,9 +7,23 @@
 
 # Railway inyecta PORT en runtime. El default local permite `docker run` sin -e.
 :{$PORT:8080} {
+	# A nivel del sitio: también lo usa handle_errors para servir el landing.
 	root * /srv
 	encode zstd gzip
-	file_server
+
+	# Mailing a colegios (AgentLoop): el píxel, los clics, la baja y la página
+	# para agendar la demo (/m/o, /m/c, /m/baja, /m/agendar) van por este dominio
+	# y no por el de AgentLoop, porque un link a otro dominio resta entregabilidad.
+	# CHATTERBOX_URL es la URL pública de AgentLoop (https://www.agentloop.lat).
+	handle /m/* {
+		reverse_proxy {$CHATTERBOX_URL} {
+			header_up Host {upstream_hostport}
+		}
+	}
+
+	handle {
+		file_server
+	}
 
 	# Assets con nombre estable pero contenido versionable a mano: cache larga
 	# para los binarios, revalidacion siempre para el HTML.
